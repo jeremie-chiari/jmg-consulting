@@ -5,7 +5,7 @@ set -e
 APP_NAME="jmg-consulting"
 VPS="isaoprod"
 VPS_DIR="/data/$APP_NAME"
-REPO_URL="git@github-judu:jeremie-chiari/$APP_NAME.git"
+REPO_URL="https://github.com/jeremie-chiari/$APP_NAME.git"
 # ================================
 
 echo "🚀 Déploiement de $APP_NAME"
