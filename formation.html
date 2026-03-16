@@ -766,11 +766,6 @@ Développer son activité avec l'Intelligence Artificielle                </h1>
             <p class="text-sm text-gray-600 leading-relaxed">Cette formation pr&eacute;pare &agrave; l'examen final de la certification &laquo;&nbsp;Int&eacute;grer l'intelligence artificielle conversationnelle dans le cycle de vente&nbsp;&raquo; enregistr&eacute; &agrave; France Comp&eacute;tences sous le num&eacute;ro RS6792. L'examen final, &agrave; distance, est obligatoire. Le certificateur est Online Sales Success. &Agrave; l'issue de la formation, le stagiaire s'engage &agrave; passer l'examen pr&eacute;parant &agrave; la certification.</p>
         </div>
 
-        <!-- Mentions -->
-        <div class="text-center space-y-1.5 pt-2">
-            <p class="text-xs text-gray-500">Certification enregistr&eacute;e &agrave; France Comp&eacute;tences sous le num&eacute;ro <strong>RS6792</strong>.</p>
-            <p class="text-xs text-gray-500">Organisme de formation enregistr&eacute; sous le NDA : <strong>84692440469</strong></p>
-        </div>
     </div>
 </section>
 
@@ -1588,6 +1583,12 @@ Développer son activité avec l'Intelligence Artificielle                </h1>
     function handleDownload(e) {
         e.preventDefault();
         closeDownloadModal();
+        var link = document.createElement('a');
+        link.href = 'Programme%20IA%20-%20JPG%20Consulting.pdf';
+        link.download = 'Programme IA - JPG Consulting.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 </script>
 </body>
