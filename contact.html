@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — JMG CONSULTING (J.M.G.C)</title>
+<meta name="description" content="Contactez-nous pour nos formations IA.">
+<meta property="og:title" content="Contact — JMG CONSULTING (J.M.G.C)">
+<meta property="og:description" content="Contactez-nous pour nos formations IA.">
+<meta property="og:image" content="https://placehold.co/1200x630">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23EA580C'/><path d='M50 28L18 44l32 16 32-16L50 28z' fill='white' opacity='0.95'/><path d='M30 52v14c0 0 8 8 20 8s20-8 20-8V52L50 62 30 52z' fill='white' opacity='0.9'/><rect x='76' y='44' width='3' height='24' rx='1.5' fill='white' opacity='0.8'/><circle cx='77.5' cy='70' r='3' fill='white' opacity='0.8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+        },
+    },
+};
+</script>
+<style>
+:root {
+  --brand-primary: #EA580C;
+  --brand-primary-dark: #C2410C;
+  --brand-secondary: #2563EB;
+  --brand-secondary-dark: #1D4ED8;
+  --brand-accent: #059669;
+}
+
+/* === Fallbacks pour color-mix() (compat Safari < 16.2, Chrome < 111) === */
+/* Ces classes sont utilisées dans les templates pour éviter color-mix() inline */
+.brand-bg-soft { background: rgba(37,99,235,0.08); background: color-mix(in srgb, var(--brand-primary) 8%, white); }
+.brand-bg-soft-md { background: rgba(37,99,235,0.12); background: color-mix(in srgb, var(--brand-primary) 12%, white); }
+.brand-bg-soft-lg { background: rgba(37,99,235,0.15); background: color-mix(in srgb, var(--brand-primary) 15%, white); }
+.brand-secondary-bg-soft { background: rgba(34,197,94,0.08); background: color-mix(in srgb, var(--brand-secondary) 8%, white); }
+.brand-hero-gradient {
+  background: linear-gradient(to bottom right, rgba(37,99,235,0.08), white, rgba(34,197,94,0.08));
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--brand-primary) 8%, white), white, color-mix(in srgb, var(--brand-secondary) 8%, white));
+}
+.brand-ring { box-shadow: 0 0 0 2px rgba(37,99,235,0.15); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.brand-blur-decor-primary { background: rgba(37,99,235,0.15); background: color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.brand-blur-decor-secondary { background: rgba(34,197,94,0.15); background: color-mix(in srgb, var(--brand-secondary) 15%, transparent); }
+.brand-badge-bg { background: rgba(37,99,235,0.08); background: color-mix(in srgb, var(--brand-primary) 8%, white); color: var(--brand-primary-dark); }
+html { scroll-behavior: smooth; }
+* { font-family: 'Inter', system-ui, sans-serif; }
+
+/* Card shadow */
+.card-shadow { box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04); }
+.card-shadow-hover:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, #111827 0%, #4B5563 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Button gradient using config colors */
+.btn-gradient { background: linear-gradient(135deg, #EA580C, #2563EB); position: relative; z-index: 1; overflow: hidden; }
+.btn-gradient:hover { transform: translateY(-1px); }
+.btn-gradient::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, #C2410C, #1D4ED8); opacity: 0; z-index: -1; transition: opacity 0.2s ease; }
+.btn-gradient:hover::before { opacity: 1; }
+
+/* Button spotlight cursor-follow effect */
+.btn-spotlight { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity 0.25s ease; background: radial-gradient(80px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255,255,255,0.4) 0%, transparent 100%); }
+.btn-gradient:hover .btn-spotlight { opacity: 1; }
+
+/* Glowing CTA Effect */
+.glow-wrapper { --glow-start: 0; --glow-active: 0; --glow-border: 3px; position: relative; display: inline-block; padding: var(--glow-border); border-radius: 1rem; }
+.glow-wrapper .glow-border { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; overflow: hidden; opacity: var(--glow-active); transition: opacity 0.3s ease; }
+.glow-wrapper .glow-border::after { content: ''; position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; transform: translate(-50%, -50%) rotate(calc(var(--glow-start) * 1deg)); background: conic-gradient(from 0deg, transparent 0deg, #EA580C 40deg, #06B6D4 80deg, #2563EB 120deg, #22C55E 160deg, transparent 200deg, transparent 360deg); }
+.glow-wrapper .glow-bg { position: absolute; inset: -6px; border-radius: inherit; pointer-events: none; overflow: hidden; filter: blur(12px); opacity: calc(var(--glow-active) * 0.5); transition: opacity 0.3s ease; }
+.glow-wrapper .glow-bg::after { content: ''; position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; transform: translate(-50%, -50%) rotate(calc(var(--glow-start) * 1deg)); background: conic-gradient(from 0deg, transparent 0deg, #EA580C 40deg, #06B6D4 80deg, #2563EB 120deg, #22C55E 160deg, transparent 200deg, transparent 360deg); }
+.glow-wrapper > a { position: relative; z-index: 2; display: block; }
+
+/* Hero Highlight Effect */
+.hero-highlight { position: relative; overflow: hidden; }
+.hero-dot-bg { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, rgb(212 212 212) 1px, transparent 1px); background-size: 16px 16px; opacity: 0.7; }
+.hero-dot-hover { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, var(--brand-primary) 1px, transparent 1px); background-size: 16px 16px; opacity: 0; transition: opacity 0.3s ease; -webkit-mask-image: radial-gradient(200px circle at 50% 50%, black 0%, transparent 100%); mask-image: radial-gradient(200px circle at 50% 50%, black 0%, transparent 100%); }
+.hero-highlight:hover .hero-dot-hover { opacity: 1; }
+
+@keyframes hero-text-enter { 0% { opacity: 0; transform: translateY(20px); } 60% { opacity: 1; transform: translateY(-5px); } 100% { opacity: 1; transform: translateY(0); } }
+.hero-text-animate { animation: hero-text-enter 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; opacity: 0; }
+
+@keyframes highlight-grow { 0% { background-size: 0% 100%; } 100% { background-size: 100% 100%; } }
+.text-highlight { background-repeat: no-repeat; background-position: left center; display: inline; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; border-radius: 0.5rem; background-image: linear-gradient(to right, color-mix(in srgb, var(--brand-primary) 40%, white), color-mix(in srgb, var(--brand-secondary) 40%, white)); background-size: 0% 100%; animation: highlight-grow 2s linear 0.8s forwards; }
+
+/* Card lift */
+.card-lift { transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.card-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); }
+
+/* FAQ */
+.faq-item { transition: border-color 200ms ease; }
+.faq-item:hover { border-left: 3px solid var(--brand-primary); }
+.faq-item.faq-open { border-left: 3px solid var(--brand-primary); }
+.faq-answer-content { background: color-mix(in srgb, var(--brand-primary) 5%, white); }
+
+/* Tab system */
+.tab-btn { position: relative; border-radius: 0.5rem; transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
+.tab-btn.active { color: var(--brand-primary); background-color: #ffffff; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08); font-weight: 600; }
+.parcours-card.active { border-color: var(--brand-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent), 0 4px 20px -4px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.format-card.active { border-color: var(--brand-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent), 0 4px 20px -4px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.module-item { transition: background-color 0.2s ease, transform 0.2s ease; }
+.module-item:hover { background-color: #F9FAFB; }
+.tab-scroll::-webkit-scrollbar { display: none; }
+.tab-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+.stat-divider { position: relative; }
+.stat-divider::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 60%; background: linear-gradient(180deg, transparent, #E5E7EB, transparent); }
+.stat-divider:last-child::after { display: none; }
+
+/* Button lift */
+.btn-lift { transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+.btn-lift:hover { transform: translateY(-1px); }
+
+/* Glow card spotlight effect */
+[data-glow] { --x: 0.5; --y: 0.5; --glow-hue: 220; --glow-opacity: 0; position: relative; overflow: hidden; }
+[data-glow]::before { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0; opacity: var(--glow-opacity); transition: opacity 0.3s ease; background: radial-gradient(600px circle at calc(var(--x) * 100%) calc(var(--y) * 100%), hsla(var(--glow-hue), 70%, 60%, 0.15) 0%, transparent 70%); }
+[data-glow]:hover { --glow-opacity: 1; transform: scale(1.02) translateY(-4px); border-color: hsla(var(--glow-hue), 70%, 60%, 0.3); box-shadow: 0 8px 30px hsla(var(--glow-hue), 70%, 60%, 0.12); }
+[data-glow] > * { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { [data-glow]:hover { transform: none; } }
+</style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2.5" aria-label="JMG CONSULTING (J.M.G.C) - Accueil">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#EA580C"/><text x="16" y="22" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="white">JC</text></svg>
+            <span class="font-bold text-gray-900 text-base tracking-tight" style="letter-spacing: -0.02em;">JMG CONSULTING (J.M.G.C)</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+            
+            <a href="index.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Accueil</a>
+            <a href="formation.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Formation</a>
+            <a href="equipe.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Équipe</a>
+            <a href="faq.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >FAQ</a>
+            <a href="contact.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 " style="color: var(--brand-primary); background: color-mix(in srgb, var(--brand-primary) 8%, white); font-weight: 600;">Contact</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" style="outline-offset: 2px;" aria-label="Menu" aria-expanded="false" onfocus="this.style.outlineColor='var(--brand-primary)'" onblur="this.style.outline=''">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+        <div class="px-4 py-3 space-y-1">
+            <a href="index.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Accueil</a>
+            <a href="formation.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Formation</a>
+            <a href="equipe.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Équipe</a>
+            <a href="faq.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >FAQ</a>
+            <a href="contact.html" class="block px-3 py-2 text-sm font-medium rounded-lg " style="color: var(--brand-primary); background: color-mix(in srgb, var(--brand-primary) 8%, white); font-weight: 600;">Contact</a>
+        </div>
+    </div>
+</header>
+    <main>
+<!-- HERO -->
+<section class="relative py-20 md:py-28 text-center overflow-hidden" style="background: linear-gradient(to bottom right, color-mix(in srgb, var(--brand-primary) 8%, white), white, color-mix(in srgb, var(--brand-secondary) 8%, white));">
+    <div class="absolute top-10 left-10 w-72 h-72 rounded-full blur-3xl" style="background: color-mix(in srgb, var(--brand-primary) 15%, transparent);"></div>
+    <div class="absolute bottom-10 right-10 w-64 h-64 rounded-full blur-3xl" style="background: color-mix(in srgb, var(--brand-secondary) 15%, transparent);"></div>
+    <div class="relative max-w-3xl mx-auto px-4">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-5">Contactez-nous</h1>
+        <p class="text-lg text-gray-500 leading-relaxed max-w-xl mx-auto">
+            Vous avez des questions sur nos formations ? Notre &eacute;quipe est l&agrave; pour vous accompagner dans votre projet professionnel.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="py-20 md:py-28 px-4">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+
+        <!-- Left column - Nos coordonn&eacute;es -->
+        <div class="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 p-10">
+            <div class="border-l-4 pl-5 mb-8" style="border-color: var(--brand-primary);">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-1" style="color: var(--brand-primary);">Nos coordonn&eacute;es</h2>
+                <p class="text-lg text-gray-500">Plusieurs moyens de nous contacter</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Email -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: color-mix(in srgb, var(--brand-primary) 15%, white);">
+                        <svg class="w-5 h-5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-base">Email</p>
+                        <p class="text-base leading-relaxed text-gray-600">jmgconsulting83@gmail.com</p>
+                    </div>
+                </div>
+
+                <!-- T&eacute;l&eacute;phone -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: color-mix(in srgb, var(--brand-primary) 15%, white);">
+                        <svg class="w-5 h-5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-base">T&eacute;l&eacute;phone</p>
+                        <p class="text-base leading-relaxed text-gray-600">+33 7 78 91 36 75</p>
+                    </div>
+                </div>
+
+                <!-- Adresse -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: color-mix(in srgb, var(--brand-primary) 15%, white);">
+                        <svg class="w-5 h-5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-base">Adresse</p>
+                        <p class="text-base leading-relaxed text-gray-600">110 Avenue Sainte Marguerite 83610 Collobrières</p>
+                        <p class="text-base leading-relaxed text-gray-600">83610 Collobrieres, France</p>
+                    </div>
+                </div>
+
+                <!-- Horaires -->
+                <div class="flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background: color-mix(in srgb, var(--brand-primary) 15%, white);">
+                        <svg class="w-5 h-5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-900 text-base">Horaires</p>
+                        <p class="text-base leading-relaxed text-gray-600">Lundi au vendredi : 9h00-19h00</p>
+                        <p class="text-base leading-relaxed text-gray-600"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- R&eacute;ponse rapide garantie -->
+            <div class="mt-8 bg-green-50 border border-green-100 rounded-2xl p-6">
+                <h3 class="font-bold text-gray-900 text-base mb-2">R&eacute;ponse rapide garantie</h3>
+                <p class="text-base leading-relaxed text-gray-600">
+                    Nous nous engageons &agrave; vous r&eacute;pondre dans les 24h ouvr&eacute;es. Pour les demandes urgentes, n'h&eacute;sitez pas &agrave; nous appeler directement.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right column - Envoyez-nous un message -->
+        <div class="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 p-10">
+            <div class="border-l-4 pl-5 mb-8" style="border-color: var(--brand-primary);">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-1" style="color: var(--brand-primary);">Envoyez-nous un message</h2>
+                <p class="text-lg text-gray-500">D&eacute;crivez votre projet et nous vous recontacterons</p>
+            </div>
+
+            <form action="#" method="POST" class="space-y-5">
+                <!-- Row 1: Nom + Email -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label for="nom" class="block text-sm font-medium text-gray-700 mb-2">Nom <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <input type="text" id="nom" name="nom" required placeholder="Votre nom complet" class="w-full border border-gray-200 rounded-xl p-4 pr-10 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                            <svg class="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4" style="color: var(--brand-primary); opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email <span class="text-red-500">*</span></label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" required placeholder="votre@email.com" class="w-full border border-gray-200 rounded-xl p-4 pr-10 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                            <svg class="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4" style="color: var(--brand-primary); opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 2: T&eacute;l&eacute;phone + Entreprise -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label for="telephone" class="block text-sm font-medium text-gray-700 mb-2">T&eacute;l&eacute;phone</label>
+                        <div class="relative">
+                            <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" class="w-full border border-gray-200 rounded-xl p-4 pr-10 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                            <svg class="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4" style="color: var(--brand-primary); opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="entreprise" class="block text-sm font-medium text-gray-700 mb-2">Entreprise</label>
+                        <div class="relative">
+                            <input type="text" id="entreprise" name="entreprise" placeholder="Nom de votre entreprise" class="w-full border border-gray-200 rounded-xl p-4 pr-10 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200">
+                            <svg class="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4" style="color: var(--brand-primary); opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Row 3: Objet -->
+                <div>
+                    <label for="objet" class="block text-sm font-medium text-gray-700 mb-2">Objet de votre message <span class="text-red-500">*</span></label>
+                    <div class="relative">
+                        <select id="objet" name="objet" required class="w-full border border-gray-200 rounded-xl p-4 pr-10 text-sm text-gray-900 bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer" style="transition: border-color 200ms ease, box-shadow 200ms ease;">
+                            <option value="" disabled selected>S&eacute;lectionnez un objet</option>
+                            <option value="information">Demande d'information</option>
+                            <option value="inscription">Inscription à une formation</option>
+                            <option value="reclamation">Réclamation</option>
+                            <option value="aleas">Aléas / Imprévu</option>
+                            <option value="difficultés">Difficultés rencontrées</option>
+                            <option value="difficulte-technique">Difficulté technique</option>
+                            <option value="difficulte-pedagogique">Difficulté pédagogique</option>
+                        </select>
+                        <svg class="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none" style="color: var(--brand-primary); opacity: 0.6;" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                    </div>
+                </div>
+
+                <!-- Row 4: Message -->
+                <div>
+                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message <span class="text-red-500">*</span></label>
+                    <textarea id="message" name="message" rows="5" required placeholder="D&eacute;crivez votre projet, vos besoins ou posez vos questions..." class="w-full border border-gray-200 rounded-xl p-4 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 resize-vertical"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="w-full btn-gradient hover:-translate-y-0.5 text-white font-semibold text-base px-8 py-4 rounded-xl shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">
+                    Envoyer le message
+                </button>
+            </form>
+        </div>
+
+    </div>
+</section>
+<!-- GOOGLE MAPS -->
+<section class="pb-20 md:pb-28 px-4">
+    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 overflow-hidden">
+        <div class="p-8 md:p-10">
+            <div class="border-l-4 pl-5 mb-6" style="border-color: var(--brand-primary);">
+                <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-1" style="color: var(--brand-primary);">Notre adresse sur Google Maps</h2>
+                <p class="text-lg text-gray-500">Vous pourrez trouver notre adresse ici !</p>
+            </div>
+            <p class="text-base text-gray-600 leading-relaxed mb-6">
+                Retrouvez-nous facilement et planifiez votre visite gr&acirc;ce &agrave; Google Maps ! Pour une localisation pr&eacute;cise et des itin&eacute;raires d&eacute;taill&eacute;s, cliquez sur la carte pour afficher notre adresse postale directement sur la carte. Nous avons h&acirc;te de vous accueillir !
+            </p>
+        </div>
+        <div class="w-full h-[350px] md:h-[400px]">
+            <iframe
+                src="https://maps.google.com/maps?q=110%20Avenue%20Sainte%20Marguerite%2083610%20Collobri%C3%A8res+83610+Collobrieres&output=embed"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="Localisation de JMG CONSULTING (J.M.G.C) sur Google Maps"></iframe>
+        </div>
+    </div>
+</section>
+    </main>
+<footer class="bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+        <div class="mb-10">
+            <a href="index.html" class="inline-flex items-center gap-2.5" aria-label="JMG CONSULTING (J.M.G.C) - Accueil">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#EA580C"/><text x="16" y="22" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="white">JC</text></svg>
+                <span class="font-bold text-gray-900 text-base tracking-tight" style="letter-spacing: -0.02em;">JMG CONSULTING (J.M.G.C)</span>
+            </a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-6">Informations l&eacute;gales</h3>
+                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                    <p><strong>JMG CONSULTING</strong></p>
+                    <p>Société par actions simplifiée</p>
+                    <p>Capital social : 1 000,00 EUR</p>
+                    <p class="mt-3">110 Avenue Sainte Marguerite 83610 Collobrières</p>
+                    <p>83610 Collobrieres</p>
+                    <p class="mt-3"><strong>Contact :</strong> jmgconsulting83@gmail.com</p>
+                    <p><strong>T&eacute;l&eacute;phone :</strong> +33 7 78 91 36 75</p>
+                    <p class="mt-3"><strong>SIRET :</strong> 93009419800015</p>
+                    <p><strong>D&eacute;claration d'activit&eacute; :</strong> NDA n&deg; 93830789783 aupr&egrave;s du Préfet de la région Provence-Alpes-Cote d'Azur.</p>
+                    <p class="text-xs text-gray-400 mt-1">Cet enregistrement ne vaut pas agr&eacute;ment de l'&Eacute;tat.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <img src="Images Site/Qualiopi_actions-de-formation.png" alt="Certification Qualiopi — La certification qualité a été délivrée au titre de la catégorie d'action suivante : Actions de formation." class="max-w-[220px] w-full mb-4">
+                <p class="text-sm text-gray-600 max-w-xs">La certification qualité a été délivrée au titre de la catégorie d'action suivante : Actions de formation.</p>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="mentions-legales.html" class="hover:text-gray-700 transition-colors duration-200">Mentions l&eacute;gales et CGU/CGV</a><span class="text-gray-300">&bull;</span>
+                <a href="reglement-interieur.html" class="hover:text-gray-700 transition-colors duration-200">R&egrave;glement int&eacute;rieur</a><span class="text-gray-300">&bull;</span>
+                <a href="livret-accueil.html" class="hover:text-gray-700 transition-colors duration-200">Livret d'accueil et modalit&eacute;s diverses</a><span class="text-gray-300">&bull;</span>
+                <a href="accessibilite-handicap.html" class="hover:text-gray-700 transition-colors duration-200">Accessibilit&eacute; handicap</a>
+            </div>
+            <p>&copy; 2026 JMG CONSULTING (J.M.G.C) - Tous droits r&eacute;serv&eacute;s &mdash; Site cr&eacute;&eacute; par <a href="https://isao.fr" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 font-medium">ISAO</a></p>
+        </div>
+    </div>
+    <div class="h-1 w-full" style="background: linear-gradient(90deg, #F97316, #EA580C, #EAB308, #22C55E, #3B82F6, #F97316);"></div>
+</footer>
+<!-- Mobile menu toggle -->
+<script>
+(function() {
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            var isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', !isOpen);
+        });
+    }
+})();
+</script>
+
+<!-- Button spotlight cursor-follow effect -->
+<script>
+(function() {
+    document.querySelectorAll('.btn-gradient').forEach(function(btn) {
+        var spot = document.createElement('span');
+        spot.className = 'btn-spotlight';
+        spot.setAttribute('aria-hidden', 'true');
+        btn.appendChild(spot);
+        btn.addEventListener('pointermove', function(e) {
+            var rect = btn.getBoundingClientRect();
+            spot.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+            spot.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+        });
+    });
+})();
+</script>
+
+<!-- Card glow spotlight effect -->
+<script>
+(function() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  var HUE_MAP = {
+    green:142, emerald:160, teal:174, cyan:188, blue:217,
+    indigo:239, violet:263, purple:271, orange:25, amber:38,
+    yellow:48, red:0, rose:350, pink:330, sky:199, lime:84
+  };
+  // Derive brand hue from --brand-primary
+  var brandHue = 217;
+  var bp = getComputedStyle(document.documentElement).getPropertyValue('--brand-primary').trim();
+  if (bp && bp.charAt(0) === '#') {
+    var hex = bp.replace('#', '');
+    if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    var r = parseInt(hex.substring(0,2),16)/255;
+    var g = parseInt(hex.substring(2,4),16)/255;
+    var b = parseInt(hex.substring(4,6),16)/255;
+    var mx = Math.max(r,g,b), mn = Math.min(r,g,b), h = 0;
+    if (mx !== mn) {
+      var d = mx - mn;
+      if (mx === r) h = ((g-b)/d + (g<b?6:0)) * 60;
+      else if (mx === g) h = ((b-r)/d + 2) * 60;
+      else h = ((r-g)/d + 4) * 60;
+    }
+    brandHue = Math.round(h);
+  }
+  // Set --glow-hue on each card from data-glow-color or brand fallback
+  document.querySelectorAll('[data-glow]').forEach(function(c) {
+    var color = c.getAttribute('data-glow-color');
+    c.style.setProperty('--glow-hue', color ? (HUE_MAP[color] || brandHue) : brandHue);
+  });
+  // Global pointermove tracking
+  document.addEventListener('pointermove', function(e) {
+    var cards = document.querySelectorAll('[data-glow]');
+    for (var i = 0; i < cards.length; i++) {
+      var rect = cards[i].getBoundingClientRect();
+      cards[i].style.setProperty('--x', ((e.clientX - rect.left) / rect.width).toFixed(3));
+      cards[i].style.setProperty('--y', ((e.clientY - rect.top) / rect.height).toFixed(3));
+    }
+  }, { passive: true });
+})();
+</script>
+
+
+</body>
+</html>

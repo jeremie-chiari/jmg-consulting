@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation IA — JMG CONSULTING (J.M.G.C)</title>
+<meta name="description" content="Développer son activité avec l'intelligence artificielle. Formation pratique avec formateur expert.">
+<meta property="og:title" content="Formation IA — JMG CONSULTING (J.M.G.C)">
+<meta property="og:description" content="Développer son activité avec l'intelligence artificielle. Formation pratique avec formateur expert.">
+<meta property="og:image" content="https://placehold.co/1200x630">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23EA580C'/><path d='M50 28L18 44l32 16 32-16L50 28z' fill='white' opacity='0.95'/><path d='M30 52v14c0 0 8 8 20 8s20-8 20-8V52L50 62 30 52z' fill='white' opacity='0.9'/><rect x='76' y='44' width='3' height='24' rx='1.5' fill='white' opacity='0.8'/><circle cx='77.5' cy='70' r='3' fill='white' opacity='0.8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+        },
+    },
+};
+</script>
+<style>
+:root {
+  --brand-primary: #EA580C;
+  --brand-primary-dark: #C2410C;
+  --brand-secondary: #2563EB;
+  --brand-secondary-dark: #1D4ED8;
+  --brand-accent: #059669;
+}
+
+/* === Fallbacks pour color-mix() (compat Safari < 16.2, Chrome < 111) === */
+/* Ces classes sont utilisées dans les templates pour éviter color-mix() inline */
+.brand-bg-soft { background: rgba(37,99,235,0.08); background: color-mix(in srgb, var(--brand-primary) 8%, white); }
+.brand-bg-soft-md { background: rgba(37,99,235,0.12); background: color-mix(in srgb, var(--brand-primary) 12%, white); }
+.brand-bg-soft-lg { background: rgba(37,99,235,0.15); background: color-mix(in srgb, var(--brand-primary) 15%, white); }
+.brand-secondary-bg-soft { background: rgba(34,197,94,0.08); background: color-mix(in srgb, var(--brand-secondary) 8%, white); }
+.brand-hero-gradient {
+  background: linear-gradient(to bottom right, rgba(37,99,235,0.08), white, rgba(34,197,94,0.08));
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--brand-primary) 8%, white), white, color-mix(in srgb, var(--brand-secondary) 8%, white));
+}
+.brand-ring { box-shadow: 0 0 0 2px rgba(37,99,235,0.15); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.brand-blur-decor-primary { background: rgba(37,99,235,0.15); background: color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.brand-blur-decor-secondary { background: rgba(34,197,94,0.15); background: color-mix(in srgb, var(--brand-secondary) 15%, transparent); }
+.brand-badge-bg { background: rgba(37,99,235,0.08); background: color-mix(in srgb, var(--brand-primary) 8%, white); color: var(--brand-primary-dark); }
+html { scroll-behavior: smooth; }
+* { font-family: 'Inter', system-ui, sans-serif; }
+
+/* Card shadow */
+.card-shadow { box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04); }
+.card-shadow-hover:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, #111827 0%, #4B5563 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Button gradient using config colors */
+.btn-gradient { background: linear-gradient(135deg, #EA580C, #2563EB); position: relative; z-index: 1; overflow: hidden; }
+.btn-gradient:hover { transform: translateY(-1px); }
+.btn-gradient::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, #C2410C, #1D4ED8); opacity: 0; z-index: -1; transition: opacity 0.2s ease; }
+.btn-gradient:hover::before { opacity: 1; }
+
+/* Button spotlight cursor-follow effect */
+.btn-spotlight { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity 0.25s ease; background: radial-gradient(80px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255,255,255,0.4) 0%, transparent 100%); }
+.btn-gradient:hover .btn-spotlight { opacity: 1; }
+
+/* Glowing CTA Effect */
+.glow-wrapper { --glow-start: 0; --glow-active: 0; --glow-border: 3px; position: relative; display: inline-block; padding: var(--glow-border); border-radius: 1rem; }
+.glow-wrapper .glow-border { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; overflow: hidden; opacity: var(--glow-active); transition: opacity 0.3s ease; }
+.glow-wrapper .glow-border::after { content: ''; position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; transform: translate(-50%, -50%) rotate(calc(var(--glow-start) * 1deg)); background: conic-gradient(from 0deg, transparent 0deg, #EA580C 40deg, #06B6D4 80deg, #2563EB 120deg, #22C55E 160deg, transparent 200deg, transparent 360deg); }
+.glow-wrapper .glow-bg { position: absolute; inset: -6px; border-radius: inherit; pointer-events: none; overflow: hidden; filter: blur(12px); opacity: calc(var(--glow-active) * 0.5); transition: opacity 0.3s ease; }
+.glow-wrapper .glow-bg::after { content: ''; position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; transform: translate(-50%, -50%) rotate(calc(var(--glow-start) * 1deg)); background: conic-gradient(from 0deg, transparent 0deg, #EA580C 40deg, #06B6D4 80deg, #2563EB 120deg, #22C55E 160deg, transparent 200deg, transparent 360deg); }
+.glow-wrapper > a { position: relative; z-index: 2; display: block; }
+
+/* Hero Highlight Effect */
+.hero-highlight { position: relative; overflow: hidden; }
+.hero-dot-bg { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, rgb(212 212 212) 1px, transparent 1px); background-size: 16px 16px; opacity: 0.7; }
+.hero-dot-hover { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, var(--brand-primary) 1px, transparent 1px); background-size: 16px 16px; opacity: 0; transition: opacity 0.3s ease; -webkit-mask-image: radial-gradient(200px circle at 50% 50%, black 0%, transparent 100%); mask-image: radial-gradient(200px circle at 50% 50%, black 0%, transparent 100%); }
+.hero-highlight:hover .hero-dot-hover { opacity: 1; }
+
+@keyframes hero-text-enter { 0% { opacity: 0; transform: translateY(20px); } 60% { opacity: 1; transform: translateY(-5px); } 100% { opacity: 1; transform: translateY(0); } }
+.hero-text-animate { animation: hero-text-enter 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; opacity: 0; }
+
+@keyframes highlight-grow { 0% { background-size: 0% 100%; } 100% { background-size: 100% 100%; } }
+.text-highlight { background-repeat: no-repeat; background-position: left center; display: inline; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; border-radius: 0.5rem; background-image: linear-gradient(to right, color-mix(in srgb, var(--brand-primary) 40%, white), color-mix(in srgb, var(--brand-secondary) 40%, white)); background-size: 0% 100%; animation: highlight-grow 2s linear 0.8s forwards; }
+
+/* Card lift */
+.card-lift { transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.card-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); }
+
+/* FAQ */
+.faq-item { transition: border-color 200ms ease; }
+.faq-item:hover { border-left: 3px solid var(--brand-primary); }
+.faq-item.faq-open { border-left: 3px solid var(--brand-primary); }
+.faq-answer-content { background: color-mix(in srgb, var(--brand-primary) 5%, white); }
+
+/* Tab system */
+.tab-btn { position: relative; border-radius: 0.5rem; transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
+.tab-btn.active { color: var(--brand-primary); background-color: #ffffff; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08); font-weight: 600; }
+.parcours-card.active { border-color: var(--brand-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent), 0 4px 20px -4px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.format-card.active { border-color: var(--brand-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent), 0 4px 20px -4px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.module-item { transition: background-color 0.2s ease, transform 0.2s ease; }
+.module-item:hover { background-color: #F9FAFB; }
+.tab-scroll::-webkit-scrollbar { display: none; }
+.tab-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+.stat-divider { position: relative; }
+.stat-divider::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 60%; background: linear-gradient(180deg, transparent, #E5E7EB, transparent); }
+.stat-divider:last-child::after { display: none; }
+
+/* Button lift */
+.btn-lift { transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+.btn-lift:hover { transform: translateY(-1px); }
+
+/* Glow card spotlight effect */
+[data-glow] { --x: 0.5; --y: 0.5; --glow-hue: 220; --glow-opacity: 0; position: relative; overflow: hidden; }
+[data-glow]::before { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0; opacity: var(--glow-opacity); transition: opacity 0.3s ease; background: radial-gradient(600px circle at calc(var(--x) * 100%) calc(var(--y) * 100%), hsla(var(--glow-hue), 70%, 60%, 0.15) 0%, transparent 70%); }
+[data-glow]:hover { --glow-opacity: 1; transform: scale(1.02) translateY(-4px); border-color: hsla(var(--glow-hue), 70%, 60%, 0.3); box-shadow: 0 8px 30px hsla(var(--glow-hue), 70%, 60%, 0.12); }
+[data-glow] > * { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { [data-glow]:hover { transform: none; } }
+</style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2.5" aria-label="JMG CONSULTING (J.M.G.C) - Accueil">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#EA580C"/><text x="16" y="22" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="white">JC</text></svg>
+            <span class="font-bold text-gray-900 text-base tracking-tight" style="letter-spacing: -0.02em;">JMG CONSULTING (J.M.G.C)</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+            
+            <a href="index.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Accueil</a>
+            <a href="formation.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 " style="color: var(--brand-primary); background: color-mix(in srgb, var(--brand-primary) 8%, white); font-weight: 600;">Formation</a>
+            <a href="equipe.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Équipe</a>
+            <a href="faq.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >FAQ</a>
+            <a href="contact.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Contact</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" style="outline-offset: 2px;" aria-label="Menu" aria-expanded="false" onfocus="this.style.outlineColor='var(--brand-primary)'" onblur="this.style.outline=''">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+        <div class="px-4 py-3 space-y-1">
+            <a href="index.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Accueil</a>
+            <a href="formation.html" class="block px-3 py-2 text-sm font-medium rounded-lg " style="color: var(--brand-primary); background: color-mix(in srgb, var(--brand-primary) 8%, white); font-weight: 600;">Formation</a>
+            <a href="equipe.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Équipe</a>
+            <a href="faq.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >FAQ</a>
+            <a href="contact.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Contact</a>
+        </div>
+    </div>
+</header>
+    <main>
+<!-- HERO / TITLE SECTION (Premium) -->
+<section class="relative overflow-hidden" style="background: linear-gradient(165deg, color-mix(in srgb, var(--brand-primary) 5%, white) 0%, white 40%, color-mix(in srgb, var(--brand-secondary) 3%, white) 100%);">
+    <!-- Decorative elements -->
+    <div class="absolute top-[-120px] right-[-80px] w-[500px] h-[500px] rounded-full pointer-events-none" style="background: radial-gradient(circle, color-mix(in srgb, var(--brand-primary) 6%, transparent) 0%, transparent 70%);" aria-hidden="true"></div>
+    <div class="absolute bottom-[-100px] left-[-100px] w-[400px] h-[400px] rounded-full pointer-events-none" style="background: radial-gradient(circle, color-mix(in srgb, var(--brand-secondary) 5%, transparent) 0%, transparent 70%);" aria-hidden="true"></div>
+    <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle, color-mix(in srgb, var(--brand-primary) 8%, transparent) 1px, transparent 1px); background-size: 24px 24px; opacity: 0.4;" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 pt-12 pb-8 md:pt-16 md:pb-12">
+        <div class="flex flex-col lg:flex-row lg:items-start lg:gap-16">
+
+            <!-- LEFT COLUMN: Title & description -->
+            <div class="flex-1 lg:max-w-[58%]">
+                <!-- Top badges row -->
+                <div id="hero-badges" class="flex flex-wrap items-center gap-2.5 mb-6">
+                    <span class="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full" style="background: color-mix(in srgb, var(--brand-primary) 10%, white); color: var(--brand-primary-dark);">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        Populaire
+                    </span>
+                    <span class="hidden lg:inline-flex items-center text-[11px] font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">A distance</span>
+                    <span class="hidden lg:inline-flex items-center text-[11px] font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Débutant accepté</span>
+                </div>
+
+                <!-- Main title -->
+                <h1 id="hero-title" class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold text-gray-900 leading-[1.1] tracking-tight" style="letter-spacing: -0.03em;">
+Développer son activité avec l'Intelligence Artificielle                </h1>
+
+                <!-- Audience description -->
+                <p id="hero-audience" class="text-base md:text-lg text-gray-500 mt-5 leading-relaxed max-w-xl">
+                    Professionnels en activité, indépendants ou salariés, souhaitant exploiter l'intelligence artificielle pour gagner en productivité et en efficacité dans leur quotidien professionnel.
+                </p>
+
+                <!-- CTA buttons -->
+                <div class="flex flex-wrap items-center gap-3.5 mt-8">
+                    <a href="contact.html" class="btn-lift btn-gradient inline-flex items-center gap-2 px-7 py-3.5 text-white text-sm font-semibold rounded-xl shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2" style="box-shadow: 0 4px 14px -2px color-mix(in srgb, var(--brand-primary) 40%, transparent);">
+                        Commencer ma formation
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Info card -->
+            <div class="mt-10 lg:mt-0 lg:w-[380px] flex-shrink-0">
+                <div id="hero-info-card" class="bg-white rounded-2xl border border-gray-100 overflow-hidden" style="box-shadow: 0 4px 24px -4px rgba(0,0,0,0.08), 0 12px 40px -8px rgba(0,0,0,0.04);">
+                    <!-- Gradient accent bar -->
+                    <div class="h-1.5" style="background: linear-gradient(to right, var(--brand-primary), var(--brand-secondary));"></div>
+                    <div class="p-6">
+                        <!-- Price -->
+                        <div class="text-center mb-5">
+                            <div class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">&Agrave; partir de</div>
+                            <div id="hero-price" class="text-4xl font-extrabold" style="color: var(--brand-primary); letter-spacing: -0.03em;">1 800&nbsp;&euro;</div>
+                        </div>
+                        <div class="border-t border-gray-100 my-4"></div>
+                        <!-- Key info items -->
+                        <div id="hero-info-items" class="space-y-3.5">
+                            <!-- Duration -->
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, var(--brand-primary) 8%, white);">
+                                    <svg class="w-[18px] h-[18px]" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-medium">Dur&eacute;e</div>
+                                    <div id="hero-duration" class="text-sm font-semibold text-gray-900">15h</div>
+                                </div>
+                            </div>
+                            <!-- Modality -->
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, var(--brand-primary) 8%, white);">
+                                    <svg class="w-[18px] h-[18px]" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-medium">Modalit&eacute;</div>
+                                    <div id="hero-modality" class="text-sm font-semibold text-gray-900">Distance</div>
+                                </div>
+                            </div>
+                            <!-- Certification -->
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, var(--brand-primary) 8%, white);">
+                                    <svg class="w-[18px] h-[18px]" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-medium">Certification</div>
+                                    <div id="hero-cert" class="text-sm font-semibold text-gray-900">RS6792</div>
+                                </div>
+                            </div>
+                            <!-- Module count -->
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, var(--brand-primary) 8%, white);">
+                                    <svg class="w-[18px] h-[18px]" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-medium">Programme</div>
+                                    <div id="hero-modules" class="text-sm font-semibold text-gray-900">4 modules</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card CTA -->
+                        <a href="contact.html" class="btn-lift btn-gradient mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 text-white text-sm font-semibold rounded-xl shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2" style="box-shadow: 0 4px 14px -2px color-mix(in srgb, var(--brand-primary) 40%, transparent);">
+                            S'inscrire &agrave; cette formation
+                        </a>
+                        <p class="text-[11px] text-gray-400 text-center mt-3 leading-relaxed">Accompagnement personnalis&eacute; &bull; R&eacute;ponse sous 24h</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMAT SELECTION -->
+<section class="max-w-3xl mx-auto px-4 mt-14 text-center">
+    <h3 class="text-xl font-bold text-gray-900 mb-8 tracking-tight">Choisissez votre format</h3>
+    <div id="format-cards-container" class="flex flex-wrap justify-center gap-5 max-w-2xl mx-auto">
+        <button class="format-card card-lift active border-2 rounded-2xl px-8 py-5 text-center cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 flex-1 min-w-[140px] max-w-[200px]" style="background-color: color-mix(in srgb, var(--brand-primary) 8%, white); border-color: var(--brand-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent), 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);" onclick="selectFormat(0)">
+            <div class="text-base font-semibold text-gray-900">15h</div>
+            <div class="text-2xl font-extrabold mt-1.5" style="color: var(--brand-primary);">1 800&euro;</div>
+        </button>
+    </div>
+    <!-- Format badges -->
+    <div id="format-badges-container" class="flex flex-wrap justify-center gap-3 mt-8">
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2.5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+            <span class="text-xs font-semibold text-gray-700">A distance</span>
+        </div>
+        <div class="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2.5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+            <span class="text-xs font-semibold text-gray-700">Débutant accepté</span>
+        </div>
+    </div>
+</section>
+
+<!-- TARIF SECTION -->
+<section class="max-w-3xl mx-auto px-4 mt-14 text-center">
+    <div class="inline-flex items-center gap-2.5 rounded-full px-6 py-2.5 mb-4" style="background: linear-gradient(to right, color-mix(in srgb, var(--brand-primary) 8%, white), color-mix(in srgb, var(--brand-primary) 12%, white)); border: 1px solid color-mix(in srgb, var(--brand-primary) 15%, white); box-shadow: 0 2px 8px color-mix(in srgb, var(--brand-primary) 8%, transparent);">
+        <svg class="w-5 h-5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/></svg>
+        <span class="text-sm font-bold" style="color: var(--brand-primary-dark);">Tarif de la formation</span>
+    </div>
+    <div id="displayed-price" class="text-4xl md:text-5xl font-extrabold mt-3" style="color: var(--brand-primary); letter-spacing: -0.03em;">1 800&euro;</div>
+</section>
+
+<!-- NOS RESULTATS -->
+<section class="bg-gradient-to-br from-gray-50 to-gray-100/50 py-20 md:py-28 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-14 tracking-tight">Nos r&eacute;sultats</h2>
+        <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+            <!-- Stat 1 -->
+            <div class="text-center stat-divider">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl flex items-center justify-center" style="background: color-mix(in srgb, var(--brand-primary) 8%, white); box-shadow: 0 2px 8px color-mix(in srgb, var(--brand-primary) 10%, transparent);">
+                    <svg class="w-8 h-8" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/></svg>
+                </div>
+                <div class="text-4xl md:text-5xl font-extrabold mb-2" style="color: var(--brand-primary); letter-spacing: -0.03em;">+100</div>
+                <div class="text-sm font-semibold text-gray-900 mb-1">Apprenants formés</div>
+                <div class="text-xs text-gray-500 leading-relaxed">Nombre de formations dispensées</div>
+            </div>
+            <!-- Stat 2 -->
+            <div class="text-center stat-divider">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-yellow-50 flex items-center justify-center" style="box-shadow: 0 2px 8px rgba(234,179,8,0.12);">
+                    <svg class="w-8 h-8 text-yellow-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div class="text-4xl md:text-5xl font-extrabold mb-2" style="color: var(--brand-primary); letter-spacing: -0.03em;">98%</div>
+                <div class="text-sm font-semibold text-gray-900 mb-1">Taux de satisfaction</div>
+                <div class="text-xs text-gray-500 leading-relaxed">Évaluation par nos apprenants</div>
+            </div>
+            <!-- Stat 3 -->
+            <div class="text-center stat-divider">
+                <div class="w-16 h-16 mx-auto mb-5 rounded-2xl bg-green-50 flex items-center justify-center" style="box-shadow: 0 2px 8px rgba(34,197,94,0.1);">
+                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                </div>
+                <div class="text-4xl md:text-5xl font-extrabold mb-2" style="color: var(--brand-primary); letter-spacing: -0.03em;">95%</div>
+                <div class="text-sm font-semibold text-gray-900 mb-1">Taux de réussite</div>
+                <div class="text-xs text-gray-500 leading-relaxed">Satisfaction de nos formations</div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center text-xs text-gray-400 mt-6">*Date de derni&egrave;re mise &agrave; jour : <span id="last-update-date"></span></p>
+    <script>
+    (function() {
+        var d = new Date();
+        var mois = ['janvier','f\u00e9vrier','mars','avril','mai','juin','juillet','ao\u00fbt','septembre','octobre','novembre','d\u00e9cembre'];
+        document.getElementById('last-update-date').textContent = mois[d.getMonth()] + ' ' + d.getFullYear();
+    })();
+    </script>
+</section>
+
+<!-- OBJECTIFS PEDAGOGIQUES -->
+<section class="max-w-4xl mx-auto px-4 mt-16 mb-4">
+    <div class="text-center mb-10">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">Objectifs p&eacute;dagogiques</h2>
+        <p class="mt-3 text-gray-500 text-sm">Objectifs d&eacute;velopp&eacute;s dans cette formation</p>
+    </div>
+    <div id="objectifs-list" class="space-y-3.5 max-w-3xl mx-auto">
+        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-5 py-3.5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            <span class="text-sm text-gray-700 leading-relaxed">&Ecirc;tre capable de c1 — identifier les situations professionnelles ou les activités professionnelles de l'acte de vente dans lesquelles l'ia apporte une plus-value afin de réaliser un gain de temps et d'efficacité dans le processus de vente.</span>
+        </div>
+        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-5 py-3.5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            <span class="text-sm text-gray-700 leading-relaxed">&Ecirc;tre capable de c2 — rédiger un questionnement auprès d'un logiciel d'ia afin d'obtenir une réponse pertinente et exploitable en s'adaptant à la plateforme et à l'objectif du questionnement.</span>
+        </div>
+        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-5 py-3.5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            <span class="text-sm text-gray-700 leading-relaxed">&Ecirc;tre capable de c3 — améliorer la qualité des réponses, en analysant les réponses de l'ia, en corrigeant le questionnement afin d'obtenir des gains de temps et d'efficacité dans le processus de vente.</span>
+        </div>
+        <div class="flex items-start gap-3 bg-white border border-gray-100 rounded-xl px-5 py-3.5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <svg class="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+            <span class="text-sm text-gray-700 leading-relaxed">&Ecirc;tre capable de c4 — garantir le respect des normes de protection des données et d'éthique en vérifiant la conformité des mesures envisagées par rapport au cadre réglementaire européen et international, assurant ainsi une implémentation conforme du projet de transformation.</span>
+        </div>
+    </div>
+</section>
+
+<!-- TAB SYSTEM -->
+<section class="max-w-4xl mx-auto px-4 mt-12 mb-20">
+    <!-- Tab bar - pill style -->
+    <div class="bg-gray-100/80 rounded-xl p-1.5 flex overflow-x-auto tab-scroll" role="tablist">
+        <button class="tab-btn active flex-1 flex-shrink-0 px-5 py-2.5 text-sm font-semibold bg-white rounded-lg shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2" style="color: var(--brand-primary);" role="tab" aria-selected="true" aria-controls="tab-modules" onclick="switchTab('modules', this)">Modules</button>
+        <button class="tab-btn flex-1 flex-shrink-0 px-5 py-2.5 text-sm font-medium text-gray-500 rounded-lg hover:text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current" role="tab" aria-selected="false" aria-controls="tab-public" onclick="switchTab('public', this)">Public &amp; Pr&eacute;requis</button>
+        <button class="tab-btn flex-1 flex-shrink-0 px-5 py-2.5 text-sm font-medium text-gray-500 rounded-lg hover:text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current" role="tab" aria-selected="false" aria-controls="tab-modalites" onclick="switchTab('modalites', this)">Modalit&eacute;s</button>
+        <button class="tab-btn flex-1 flex-shrink-0 px-5 py-2.5 text-sm font-medium text-gray-500 rounded-lg hover:text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current" role="tab" aria-selected="false" aria-controls="tab-evaluation" onclick="switchTab('evaluation', this)">&Eacute;valuation</button>
+    </div>
+
+    <!-- TAB 1: MODULES -->
+    <div id="tab-modules" class="tab-content active py-10" role="tabpanel">
+        <div id="modules-list" class="space-y-2">
+            <div class="module-item flex gap-4 p-4 rounded-xl border-l-4 border-l-violet-500 border border-transparent">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-violet-500 flex items-center justify-center" style="box-shadow: 0 2px 8px rgba(139,92,246,0.25);">
+                    <span class="text-white text-sm font-bold">1</span>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-base font-semibold text-gray-900 mb-1.5">Identifier les situations de vente où l'IA apporte une plus-value</h4>
+                    <p class="text-sm text-gray-600 mb-2 leading-relaxed">
+                        <span class="font-medium text-gray-700">Objectifs :</span> Identifier les situations professionnelles et les activités de l'acte de vente dans lesquelles l'IA apporte une plus-value afin de réaliser un gain de temps et d'efficacité dans le processus de vente.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1 ml-4 list-disc leading-relaxed">
+                        <li>Cartographie des étapes du cycle de vente</li>
+                        <li>Identification des tâches automatisables par l'IA</li>
+                        <li>Analyse coût/bénéfice de l'intégration IA</li>
+                        <li>Cas d'usage concrets : prospection, qualification, suivi client</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="module-item flex gap-4 p-4 rounded-xl border-l-4 border-l-blue-600 border border-transparent">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center" style="box-shadow: 0 2px 8px rgba(37,99,235,0.25);">
+                    <span class="text-white text-sm font-bold">2</span>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-base font-semibold text-gray-900 mb-1.5">Rédiger des prompts efficaces pour l'IA</h4>
+                    <p class="text-sm text-gray-600 mb-2 leading-relaxed">
+                        <span class="font-medium text-gray-700">Objectifs :</span> Rédiger un questionnement auprès d'un logiciel d'IA afin d'obtenir une réponse pertinente et exploitable en s'adaptant à la plateforme et à l'objectif du questionnement.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1 ml-4 list-disc leading-relaxed">
+                        <li>Structure et anatomie d'un prompt efficace</li>
+                        <li>Adaptation aux différentes plateformes (ChatGPT, Claude, Gemini)</li>
+                        <li>Techniques de prompting : contexte, rôle, format de sortie</li>
+                        <li>Exercices pratiques par objectif de vente</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="module-item flex gap-4 p-4 rounded-xl border-l-4 border-l-indigo-500 border border-transparent">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center" style="box-shadow: 0 2px 8px rgba(99,102,241,0.25);">
+                    <span class="text-white text-sm font-bold">3</span>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-base font-semibold text-gray-900 mb-1.5">Analyser et améliorer les réponses de l'IA</h4>
+                    <p class="text-sm text-gray-600 mb-2 leading-relaxed">
+                        <span class="font-medium text-gray-700">Objectifs :</span> Améliorer la qualité des réponses, en analysant les réponses de l'IA, en corrigeant le questionnement afin d'obtenir des gains de temps et d'efficacité dans le processus de vente.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1 ml-4 list-disc leading-relaxed">
+                        <li>Évaluation critique des réponses de l'IA</li>
+                        <li>Techniques d'itération et de raffinage des prompts</li>
+                        <li>Correction et reformulation pour des résultats optimaux</li>
+                        <li>Vérification et validation des contenus générés</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="module-item flex gap-4 p-4 rounded-xl border-l-4 border-l-orange-500 border border-transparent">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center" style="box-shadow: 0 2px 8px rgba(249,115,22,0.25);">
+                    <span class="text-white text-sm font-bold">4</span>
+                </div>
+                <div class="flex-1">
+                    <h4 class="text-base font-semibold text-gray-900 mb-1.5">Éthique, RGPD et conformité de l'IA</h4>
+                    <p class="text-sm text-gray-600 mb-2 leading-relaxed">
+                        <span class="font-medium text-gray-700">Objectifs :</span> Garantir le respect des normes de protection des données et d'éthique en vérifiant la conformité des mesures envisagées par rapport au cadre réglementaire européen et international, assurant ainsi une implémentation conforme du projet de transformation.
+                    </p>
+                    <ul class="text-sm text-gray-500 space-y-1 ml-4 list-disc leading-relaxed">
+                        <li>Cadre réglementaire européen : RGPD et AI Act</li>
+                        <li>Protection des données clients dans l'utilisation de l'IA</li>
+                        <li>Enjeux éthiques : biais, transparence, responsabilité</li>
+                        <li>Bonnes pratiques pour une utilisation conforme</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 2: PUBLIC & PREREQUIS -->
+    <div id="tab-public" class="tab-content py-10" role="tabpanel">
+        <!-- Public vise -->
+        <div class="mb-8">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-2xl" aria-hidden="true">&#x1F465;</span>
+                <h3 class="text-xl font-bold text-gray-900">Public vis&eacute;</h3>
+            </div>
+            <p id="audience-text" class="text-sm text-gray-600 leading-relaxed ml-10">
+                Professionnels en activité, indépendants ou salariés, souhaitant exploiter l'intelligence artificielle pour gagner en productivité et en efficacité dans leur quotidien professionnel.
+            </p>
+        </div>
+
+        <div class="border-t border-gray-100 my-8"></div>
+
+        <!-- Prerequis -->
+        <div>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, var(--brand-primary) 15%, white);">
+                    <svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                </span>
+                <h3 class="text-xl font-bold text-gray-900">Pr&eacute;requis</h3>
+            </div>
+            <div id="prerequisites-list" class="space-y-3.5 ml-10">
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span class="text-sm text-gray-600 leading-relaxed">Le candidat doit posséder des compétences commerciales</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span class="text-sm text-gray-600 leading-relaxed">Un test et un entretien sont réalisés pour vérifier ces compétences</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span class="text-sm text-gray-600 leading-relaxed">Avoir une activité commerciale dans le cadre de son métier (en activité principale ou secondaire)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-gray-100 my-8"></div>
+
+        <!-- Accessibilite handicap -->
+        <div>
+            <div class="flex items-center gap-3 mb-4">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, var(--brand-primary) 15%, white);">
+                    <svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+                </span>
+                <h3 class="text-xl font-bold text-gray-900">Accessibilit&eacute; aux personnes en situation de handicap</h3>
+            </div>
+            <p class="text-sm text-gray-600 leading-relaxed ml-10">
+                Cette formation est ouverte &agrave; toute personne en situation de handicap. Chaque dossier est &eacute;tudi&eacute; individuellement afin d'&eacute;valuer les possibilit&eacute;s d'adaptation du programme, des supports p&eacute;dagogiques et des modalit&eacute;s de d&eacute;roulement de la formation. N'h&eacute;sitez pas &agrave; contacter notre r&eacute;f&eacute;rent handicap pour &eacute;changer sur votre situation et d&eacute;finir ensemble les am&eacute;nagements possibles.
+            </p>
+        </div>
+    </div>
+
+    <!-- TAB 3: MODALITES -->
+    <div id="tab-modalites" class="tab-content py-10" role="tabpanel">
+        <div id="modalites-content" class="grid md:grid-cols-2 gap-10">
+            <!-- Left: Moyens pedagogiques -->
+            <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-6 tracking-tight">Moyens p&eacute;dagogiques</h3>
+                <div id="pedagogical-means" class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-50/80 rounded-2xl p-5 border border-gray-100">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background: color-mix(in srgb, var(--brand-primary) 15%, white); color: var(--brand-primary);">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>
+
+                        </div>
+                        <div class="text-sm font-semibold text-gray-900 mb-1">Visioconférence</div>
+                        <div class="text-xs text-gray-500 leading-relaxed">Sessions en direct via Google Meet</div>
+                    </div>
+                    <div class="bg-gray-50/80 rounded-2xl p-5 border border-gray-100">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background: color-mix(in srgb, var(--brand-primary) 15%, white); color: var(--brand-primary);">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+
+                        </div>
+                        <div class="text-sm font-semibold text-gray-900 mb-1">Supports et tutoriels</div>
+                        <div class="text-xs text-gray-500 leading-relaxed">Guides et fiches pratiques</div>
+                    </div>
+                    <div class="bg-gray-50/80 rounded-2xl p-5 border border-gray-100">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background: color-mix(in srgb, var(--brand-primary) 15%, white); color: var(--brand-primary);">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+
+                        </div>
+                        <div class="text-sm font-semibold text-gray-900 mb-1">Cas pratiques</div>
+                        <div class="text-xs text-gray-500 leading-relaxed">Exercices sur outils IA réels</div>
+                    </div>
+                    <div class="bg-gray-50/80 rounded-2xl p-5 border border-gray-100">
+                        <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background: color-mix(in srgb, var(--brand-primary) 15%, white); color: var(--brand-primary);">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+
+                        </div>
+                        <div class="text-sm font-semibold text-gray-900 mb-1">Projet final</div>
+                        <div class="text-xs text-gray-500 leading-relaxed">Application dans votre métier</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Organisation -->
+            <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-6 tracking-tight">Organisation</h3>
+                <div id="organisation-details" class="space-y-4">
+                    <div class="text-sm text-gray-700 leading-relaxed">
+                        <span class="font-semibold">Mode :</span> <span id="org-mode">Distance</span>
+                    </div>
+                    <div class="text-sm text-gray-700 leading-relaxed">
+                        <span class="font-semibold">Dur&eacute;e :</span> <span id="org-duration">15 heures</span>
+                    </div>
+                    <div class="text-sm text-gray-700 leading-relaxed">
+                        <span class="font-semibold">Attestation :</span> <span id="org-certification">Attestation de formation</span>
+                    </div>
+                </div>
+                <p id="org-note" class="text-sm text-gray-500 mt-6 leading-relaxed">
+                    Accès aux outils IA fourni pendant la formation (comptes de démonstration).
+                </p>
+            </div>
+            <!-- Déroulement et délai d'accès -->
+            <div class="md:col-span-2 mt-8 pt-8 border-t border-gray-100">
+                <h3 class="text-xl font-bold text-gray-900 mb-4 tracking-tight">D&eacute;roulement et d&eacute;lai d'acc&egrave;s</h3>
+                <div class="text-sm text-gray-700 leading-relaxed space-y-2">
+                    <p>La formation démarre 14 jours après la souscription afin de respecter le délai légal de rétractation.</p><p>Pendant ce délai vous recevez vos accès à la plateforme contenant les supports, vidéos et exercices.</p><p>L'accès aux contenus reste disponible pendant 90 jours.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TAB 4: EVALUATION -->
+    <div id="tab-evaluation" class="tab-content py-10" role="tabpanel">
+        <!-- Modalites d'evaluation et de suivi -->
+        <div class="flex items-center gap-3 mb-6">
+            <span class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, var(--brand-primary) 15%, white);">
+                <svg class="w-4.5 h-4.5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+            </span>
+            <h3 class="text-xl font-bold text-gray-900 tracking-tight">Modalit&eacute;s d'&eacute;valuation et de suivi</h3>
+        </div>
+
+        <p class="text-sm text-gray-600 leading-relaxed mb-8">
+            De nombreuses &eacute;valuations viennent jalonner le parcours de formation, avant, pendant et &agrave; la fin de la formation : QCM, questions ouvertes, exercices pratiques et mises en situation. Ces &eacute;valuations permettent de mesurer la progression de l'apprenant et de s'assurer de l'acquisition des comp&eacute;tences vis&eacute;es tout au long du parcours.
+        </p>
+
+        <!-- Dispositif de suivi -->
+        <div class="mb-8">
+            <h4 class="text-base font-semibold text-gray-900 mb-4">Dispositif de suivi</h4>
+            <div id="tracking-list" class="space-y-3 ml-1">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-sm text-gray-600 leading-relaxed">Émargement numérique</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span class="text-sm text-gray-600 leading-relaxed">Exercices pratiques</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span class="text-sm text-gray-600 leading-relaxed">Projet final</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                    <span class="text-sm text-gray-600 leading-relaxed">Formulaires d'évaluation</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certification (only rendered when site has certification partnership) -->
+        <div id="certification-section" class="mb-10 pt-8 border-t border-gray-100">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0" style="background: color-mix(in srgb, #059669 15%, white);">
+                    <svg class="w-4.5 h-4.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>
+                </span>
+                <h4 class="text-base font-semibold text-gray-900">Certification RS6792 — Online Sales Success</h4>
+            </div>
+            <div id="certification-note" class="bg-emerald-50/60 border border-emerald-100 rounded-2xl p-5 ml-1">
+                <p class="text-sm text-gray-700 leading-relaxed"></p>
+            </div>
+        </div>
+
+        <!-- Modalites d'inscription -->
+        <div class="mb-10">
+            <h4 class="text-base font-semibold text-gray-900 mb-4">Modalit&eacute;s d'inscription</h4>
+            <div class="space-y-3">
+                <div class="bg-blue-50/60 border border-blue-100 rounded-2xl p-5 flex items-start gap-3.5">
+                    <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z"/></svg>
+                    <div class="text-sm text-gray-700 leading-relaxed">
+                        <p>Vous pouvez vous inscrire directement depuis notre site en remplissant le <a href="contact.html" class="font-medium underline underline-offset-2" style="color: var(--brand-primary);">formulaire de contact</a> ou en nous appelant. Un conseiller vous contactera afin d'analyser vos besoins et d'&eacute;valuer votre niveau actuel, dans le but d'adapter le programme, la dur&eacute;e et le d&eacute;roulement de la formation &agrave; votre profil.</p>
+                    </div>
+                </div>
+                <p id="inscription-note" class="text-sm text-gray-500 leading-relaxed hidden">
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center pt-4 border-t border-gray-100">
+        <button onclick="openDownloadModal()" class="btn-gradient inline-flex items-center gap-2.5 px-10 py-4 text-white text-sm font-semibold uppercase tracking-wide rounded-xl shadow-lg hover:shadow-xl transition-transform duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current" style="box-shadow: 0 4px 14px -2px color-mix(in srgb, var(--brand-primary) 40%, transparent);">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+            T&eacute;l&eacute;charger le programme
+        </button>
+    </div>
+</section>
+
+<!-- EVALUATION FINALE / CERTIFICATION -->
+
+<!-- MODAL PROGRAMME -->
+<div id="programme-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeProgrammeModal()"></div>
+    <!-- Modal content -->
+    <div class="absolute inset-0 flex items-center justify-center p-4">
+        <div class="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto" style="animation: modalEnter 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);">
+            <!-- Close button -->
+            <button onclick="closeProgrammeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2" style="transition: background-color 0.2s ease;" aria-label="Fermer">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+            </button>
+            <!-- Header -->
+            <div class="p-8 pb-0">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background: color-mix(in srgb, var(--brand-primary) 12%, white);">
+                    <svg class="w-6 h-6" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                </div>
+                <h3 id="modal-title" class="text-xl font-bold text-gray-900 tracking-tight mb-1">T&eacute;l&eacute;chargement en cours...</h3>
+                <p class="text-sm text-gray-500">Voici le r&eacute;capitulatif de votre formation</p>
+            </div>
+            <!-- Formation info -->
+            <div class="p-8 space-y-4">
+                <div class="rounded-xl border border-gray-100 divide-y divide-gray-100" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+                    <div class="flex justify-between items-center px-5 py-3.5">
+                        <span class="text-sm text-gray-500">Formation</span>
+                        <span id="modal-formation-name" class="text-sm font-semibold text-gray-900 text-right max-w-[60%]"></span>
+                    </div>
+                    <div class="flex justify-between items-center px-5 py-3.5">
+                        <span class="text-sm text-gray-500">Dur&eacute;e</span>
+                        <span id="modal-formation-duration" class="text-sm font-semibold text-gray-900"></span>
+                    </div>
+                    <div class="flex justify-between items-center px-5 py-3.5">
+                        <span class="text-sm text-gray-500">Tarif</span>
+                        <span id="modal-formation-price" class="text-sm font-bold" style="color: var(--brand-primary);"></span>
+                    </div>
+                </div>
+                <!-- Contact info -->
+                <div class="rounded-xl p-5 flex items-start gap-3.5" style="background: color-mix(in srgb, var(--brand-primary) 5%, white);">
+                    <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"/></svg>
+                    <div class="text-sm text-gray-600 leading-relaxed">
+                        <p class="font-medium text-gray-900 mb-1">Besoin d'informations ?</p>
+                        <p>Contactez-nous au <strong>+33 7 78 91 36 75</strong> ou par email &agrave; <strong>jmgconsulting83@gmail.com</strong></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <div class="px-8 pb-8 flex gap-3">
+                <button onclick="closeProgrammeModal()" class="flex-1 btn-lift px-6 py-3 border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl bg-white hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2" style="box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+                    Fermer
+                </button>
+                <button onclick="closeProgrammeModal(); openDownloadModal();" class="flex-1 btn-lift btn-gradient inline-flex items-center justify-center gap-2 px-6 py-3 text-white text-sm font-semibold rounded-xl shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2">
+                    T&eacute;l&eacute;charger
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+@keyframes modalEnter { 0% { opacity: 0; transform: scale(0.95) translateY(10px); } 100% { opacity: 1; transform: scale(1) translateY(0); } }
+</style>
+
+<!-- DOWNLOAD MODAL -->
+<div id="download-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="closeDownloadModal()"></div>
+    <div class="relative flex items-center justify-center min-h-full p-4">
+        <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full p-8" style="animation: modalEnter 0.3s ease-out;">
+            <button onclick="closeDownloadModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors" aria-label="Fermer">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style="background: color-mix(in srgb, var(--brand-primary) 10%, white);">
+                    <svg class="w-7 h-7" style="color: var(--brand-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900">T&eacute;l&eacute;charger le programme</h3>
+                <p class="text-sm text-gray-500 mt-1">Remplissez le formulaire pour recevoir le programme complet</p>
+            </div>
+            <form id="download-form" onsubmit="handleDownload(event)">
+                <div class="space-y-3">
+                    <input type="text" name="prenom" placeholder="Pr&eacute;nom" required class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:border-transparent" style="--tw-ring-color: var(--brand-primary);">
+                    <input type="email" name="email" placeholder="Email" required class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:border-transparent" style="--tw-ring-color: var(--brand-primary);">
+                    <input type="tel" name="telephone" placeholder="T&eacute;l&eacute;phone" required class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:border-transparent" style="--tw-ring-color: var(--brand-primary);">
+                </div>
+                <button type="submit" class="w-full btn-gradient text-white font-semibold py-3.5 rounded-xl mt-5 shadow-lg hover:shadow-xl transition-transform duration-300">
+                    T&eacute;l&eacute;charger le programme
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+    </main>
+<footer class="bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+        <div class="mb-10">
+            <a href="index.html" class="inline-flex items-center gap-2.5" aria-label="JMG CONSULTING (J.M.G.C) - Accueil">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#EA580C"/><text x="16" y="22" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="white">JC</text></svg>
+                <span class="font-bold text-gray-900 text-base tracking-tight" style="letter-spacing: -0.02em;">JMG CONSULTING (J.M.G.C)</span>
+            </a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-6">Informations l&eacute;gales</h3>
+                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                    <p><strong>JMG CONSULTING</strong></p>
+                    <p>Société par actions simplifiée</p>
+                    <p>Capital social : 1 000,00 EUR</p>
+                    <p class="mt-3">110 Avenue Sainte Marguerite 83610 Collobrières</p>
+                    <p>83610 Collobrieres</p>
+                    <p class="mt-3"><strong>Contact :</strong> jmgconsulting83@gmail.com</p>
+                    <p><strong>T&eacute;l&eacute;phone :</strong> +33 7 78 91 36 75</p>
+                    <p class="mt-3"><strong>SIRET :</strong> 93009419800015</p>
+                    <p><strong>D&eacute;claration d'activit&eacute; :</strong> NDA n&deg; 93830789783 aupr&egrave;s du Préfet de la région Provence-Alpes-Cote d'Azur.</p>
+                    <p class="text-xs text-gray-400 mt-1">Cet enregistrement ne vaut pas agr&eacute;ment de l'&Eacute;tat.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <img src="Images Site/Qualiopi_actions-de-formation.png" alt="Certification Qualiopi — La certification qualité a été délivrée au titre de la catégorie d'action suivante : Actions de formation." class="max-w-[220px] w-full mb-4">
+                <p class="text-sm text-gray-600 max-w-xs">La certification qualité a été délivrée au titre de la catégorie d'action suivante : Actions de formation.</p>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="mentions-legales.html" class="hover:text-gray-700 transition-colors duration-200">Mentions l&eacute;gales et CGU/CGV</a><span class="text-gray-300">&bull;</span>
+                <a href="reglement-interieur.html" class="hover:text-gray-700 transition-colors duration-200">R&egrave;glement int&eacute;rieur</a><span class="text-gray-300">&bull;</span>
+                <a href="livret-accueil.html" class="hover:text-gray-700 transition-colors duration-200">Livret d'accueil et modalit&eacute;s diverses</a><span class="text-gray-300">&bull;</span>
+                <a href="accessibilite-handicap.html" class="hover:text-gray-700 transition-colors duration-200">Accessibilit&eacute; handicap</a>
+            </div>
+            <p>&copy; 2026 JMG CONSULTING (J.M.G.C) - Tous droits r&eacute;serv&eacute;s &mdash; Site cr&eacute;&eacute; par <a href="https://isao.fr" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 font-medium">ISAO</a></p>
+        </div>
+    </div>
+    <div class="h-1 w-full" style="background: linear-gradient(90deg, #F97316, #EA580C, #EAB308, #22C55E, #3B82F6, #F97316);"></div>
+</footer>
+<!-- Mobile menu toggle -->
+<script>
+(function() {
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            var isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', !isOpen);
+        });
+    }
+})();
+</script>
+
+<!-- Button spotlight cursor-follow effect -->
+<script>
+(function() {
+    document.querySelectorAll('.btn-gradient').forEach(function(btn) {
+        var spot = document.createElement('span');
+        spot.className = 'btn-spotlight';
+        spot.setAttribute('aria-hidden', 'true');
+        btn.appendChild(spot);
+        btn.addEventListener('pointermove', function(e) {
+            var rect = btn.getBoundingClientRect();
+            spot.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+            spot.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+        });
+    });
+})();
+</script>
+
+<!-- Card glow spotlight effect -->
+<script>
+(function() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  var HUE_MAP = {
+    green:142, emerald:160, teal:174, cyan:188, blue:217,
+    indigo:239, violet:263, purple:271, orange:25, amber:38,
+    yellow:48, red:0, rose:350, pink:330, sky:199, lime:84
+  };
+  // Derive brand hue from --brand-primary
+  var brandHue = 217;
+  var bp = getComputedStyle(document.documentElement).getPropertyValue('--brand-primary').trim();
+  if (bp && bp.charAt(0) === '#') {
+    var hex = bp.replace('#', '');
+    if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    var r = parseInt(hex.substring(0,2),16)/255;
+    var g = parseInt(hex.substring(2,4),16)/255;
+    var b = parseInt(hex.substring(4,6),16)/255;
+    var mx = Math.max(r,g,b), mn = Math.min(r,g,b), h = 0;
+    if (mx !== mn) {
+      var d = mx - mn;
+      if (mx === r) h = ((g-b)/d + (g<b?6:0)) * 60;
+      else if (mx === g) h = ((b-r)/d + 2) * 60;
+      else h = ((r-g)/d + 4) * 60;
+    }
+    brandHue = Math.round(h);
+  }
+  // Set --glow-hue on each card from data-glow-color or brand fallback
+  document.querySelectorAll('[data-glow]').forEach(function(c) {
+    var color = c.getAttribute('data-glow-color');
+    c.style.setProperty('--glow-hue', color ? (HUE_MAP[color] || brandHue) : brandHue);
+  });
+  // Global pointermove tracking
+  document.addEventListener('pointermove', function(e) {
+    var cards = document.querySelectorAll('[data-glow]');
+    for (var i = 0; i < cards.length; i++) {
+      var rect = cards[i].getBoundingClientRect();
+      cards[i].style.setProperty('--x', ((e.clientX - rect.left) / rect.width).toFixed(3));
+      cards[i].style.setProperty('--y', ((e.clientY - rect.top) / rect.height).toFixed(3));
+    }
+  }, { passive: true });
+})();
+</script>
+
+
+<script>
+    // Formations data from config
+    var formationsData = [{"id":"ia-generative","title":"Intelligence Artificielle","fullTitle":"Développer son activité avec l'Intelligence Artificielle","fullTitleNoCert":"Développer son activité avec l'Intelligence Artificielle","icon":"sparkles","colorTheme":"violet","isPopular":true,"isDefault":true,"certificationNumber":"RS6792","certificationBadgeColor":"#059669","formats":[{"hours":"15","price":1800,"priceDisplay":"1 800"}],"badges":["A distance","Débutant accepté","Certification","CPF"],"badgesNoCert":["A distance","Débutant accepté"],"modules":[{"number":1,"title":"Identifier les situations de vente où l'IA apporte une plus-value","objectives":"Identifier les situations professionnelles et les activités de l'acte de vente dans lesquelles l'IA apporte une plus-value afin de réaliser un gain de temps et d'efficacité dans le processus de vente.","details":["Cartographie des étapes du cycle de vente","Identification des tâches automatisables par l'IA","Analyse coût/bénéfice de l'intégration IA","Cas d'usage concrets : prospection, qualification, suivi client"],"color":"violet"},{"number":2,"title":"Rédiger des prompts efficaces pour l'IA","objectives":"Rédiger un questionnement auprès d'un logiciel d'IA afin d'obtenir une réponse pertinente et exploitable en s'adaptant à la plateforme et à l'objectif du questionnement.","details":["Structure et anatomie d'un prompt efficace","Adaptation aux différentes plateformes (ChatGPT, Claude, Gemini)","Techniques de prompting : contexte, rôle, format de sortie","Exercices pratiques par objectif de vente"],"color":"blue"},{"number":3,"title":"Analyser et améliorer les réponses de l'IA","objectives":"Améliorer la qualité des réponses, en analysant les réponses de l'IA, en corrigeant le questionnement afin d'obtenir des gains de temps et d'efficacité dans le processus de vente.","details":["Évaluation critique des réponses de l'IA","Techniques d'itération et de raffinage des prompts","Correction et reformulation pour des résultats optimaux","Vérification et validation des contenus générés"],"color":"indigo"},{"number":4,"title":"Éthique, RGPD et conformité de l'IA","objectives":"Garantir le respect des normes de protection des données et d'éthique en vérifiant la conformité des mesures envisagées par rapport au cadre réglementaire européen et international, assurant ainsi une implémentation conforme du projet de transformation.","details":["Cadre réglementaire européen : RGPD et AI Act","Protection des données clients dans l'utilisation de l'IA","Enjeux éthiques : biais, transparence, responsabilité","Bonnes pratiques pour une utilisation conforme"],"color":"orange"}],"audience":"Professionnels en activité, indépendants ou salariés, souhaitant exploiter l'intelligence artificielle pour gagner en productivité et en efficacité dans leur quotidien professionnel.","audienceNoCert":"Professionnels en activité, indépendants ou salariés, souhaitant exploiter l'intelligence artificielle pour gagner en productivité et en efficacité dans leur quotidien professionnel.","prerequisites":["Le candidat doit posséder des compétences commerciales","Un test et un entretien sont réalisés pour vérifier ces compétences","Avoir une activité commerciale dans le cadre de son métier (en activité principale ou secondaire)"],"evaluation":{"tracking":["Émargement numérique","Exercices pratiques","Projet final","Formulaires d'évaluation"],"certificationNote":"Cette formation prépare à la certification « Intégrer l'intelligence artificielle conversationnelle dans le cycle de vente » enregistrée à France Compétences sous le numéro RS6792. Le certificateur est Online Sales Success. L'examen final comprend une étude de cas en distanciel et une soutenance orale en distanciel. À l'issue de la formation, le stagiaire s'engage à passer l'examen préparant à la certification.","inscriptionNote":"Cette formation est éligible au CPF. Seules les actions rentrant dans le cadre de l'article L6313-1 du code du travail bénéficient de cette prise en charge."},"evaluationNoCert":{"tracking":["Émargement numérique","Exercices pratiques","Projet final","Formulaires d'évaluation"]},"modalities":{"mode":"Distance","duration":"35 heures","pedagogicalMeans":[{"icon":"video","title":"Visioconférence","desc":"Sessions en direct via Google Meet"},{"icon":"document","title":"Supports et tutoriels","desc":"Guides et fiches pratiques"},{"icon":"briefcase","title":"Cas pratiques","desc":"Exercices sur outils IA réels"},{"icon":"check","title":"Projet final","desc":"Application dans votre métier"}],"certification":"Certification RS6792 — Online Sales Success","note":"Accès aux outils IA fourni pendant la formation (comptes de démonstration).","delaiAcces":"<p>La formation démarre 14 jours après la souscription afin de respecter le délai légal de rétractation.</p><p>Pendant ce délai vous recevez vos accès à la plateforme contenant les supports, vidéos et exercices.</p><p>L'accès aux contenus reste disponible pendant 90 jours.</p>"},"modalitiesCertificationNoCert":null}];
+    var currentParcoursIndex = 0;
+    var currentFormatIndex = 0;
+    var siteIsCertified = true;
+    var brandPrimary = getComputedStyle(document.documentElement).getPropertyValue('--brand-primary').trim();
+
+    // Color mapping for module borders/circles
+    var moduleColorMap = {
+        'blue':   { border: 'border-l-blue-600', bg: 'bg-blue-600', shadow: 'rgba(37,99,235,0.25)' },
+        'indigo': { border: 'border-l-indigo-500', bg: 'bg-indigo-500', shadow: 'rgba(99,102,241,0.25)' },
+        'violet': { border: 'border-l-violet-500', bg: 'bg-violet-500', shadow: 'rgba(139,92,246,0.25)' },
+        'pink':   { border: 'border-l-pink-500', bg: 'bg-pink-500', shadow: 'rgba(236,72,153,0.25)' },
+        'orange': { border: 'border-l-orange-500', bg: 'bg-orange-500', shadow: 'rgba(249,115,22,0.25)' },
+        'teal':   { border: 'border-l-teal-500', bg: 'bg-teal-500', shadow: 'rgba(20,184,166,0.25)' },
+        'red':    { border: 'border-l-red-500', bg: 'bg-red-500', shadow: 'rgba(239,68,68,0.25)' },
+        'gray':   { border: 'border-l-gray-400', bg: 'bg-gray-400', shadow: 'rgba(156,163,175,0.3)' }
+    };
+
+    // Badge icon SVGs mapping
+    var badgeIconMap = {
+        'Mixte': '<svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z"/></svg>',
+        'Direct': '<svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>',
+        'Certification': '<svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>',
+        'Flexible': '<svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>'
+    };
+    var defaultBadgeIcon = '<svg class="w-4 h-4" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>';
+
+    // Pedagogical means icon SVGs
+    var meansIconMap = {
+        'video': '<svg class="w-5 h-5" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"/></svg>',
+        'document': '<svg class="w-5 h-5" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>',
+        'briefcase': '<svg class="w-5 h-5" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>',
+        'check': '<svg class="w-5 h-5" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>'
+    };
+    var defaultMeansIcon = '<svg class="w-5 h-5" style="color:var(--brand-primary)" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347"/></svg>';
+
+    // Check icon SVG for lists
+    var checkIconSvg = '<svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>';
+
+    /**
+     * Strip certification suffix from title when not certified
+     */
+    function getDisplayTitle(title) {
+        if (siteIsCertified) return title;
+        return title.replace(/\s*[—\-]\s*Certification.*$/i, '').trim();
+    }
+
+    /**
+     * Select a parcours (formation) by index
+     */
+    function selectParcours(index) {
+        currentParcoursIndex = index;
+        currentFormatIndex = 0;
+        var formation = formationsData[index];
+
+        // Update parcours card active states
+        var cards = document.querySelectorAll('.parcours-card');
+        cards.forEach(function(c, i) {
+            var arrow = c.querySelector('.parcours-arrow');
+            if (i === index) {
+                c.classList.add('active');
+                c.classList.remove('bg-white');
+                c.style.backgroundColor = 'color-mix(in srgb, ' + brandPrimary + ' 8%, white)';
+                c.style.borderColor = brandPrimary;
+                c.style.boxShadow = '0 0 0 2px color-mix(in srgb, ' + brandPrimary + ' 15%, transparent), 0 4px 20px -4px color-mix(in srgb, ' + brandPrimary + ' 18%, transparent)';
+                if (arrow) { arrow.classList.remove('hidden'); }
+            } else {
+                c.classList.remove('active');
+                c.style.backgroundColor = '';
+                c.classList.add('bg-white');
+                c.style.borderColor = '#E5E7EB';
+                c.style.boxShadow = '0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04)';
+                if (arrow) { arrow.classList.add('hidden'); }
+            }
+        });
+
+        // Update hero badges
+        var heroBadges = document.getElementById('hero-badges');
+        if (heroBadges) {
+            var badgesHtml = '';
+            if (siteIsCertified) {
+                badgesHtml = '<span class="inline-flex items-center gap-1.5 text-white text-xs font-bold px-3.5 py-1.5 rounded-full" style="background-color: ' + formation.certificationBadgeColor + '; box-shadow: 0 2px 8px color-mix(in srgb, ' + formation.certificationBadgeColor + ' 30%, transparent);">'
+                    + '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg>'
+                    + 'Certifiante ' + formation.certificationNumber + '</span>';
+            }
+            if (formation.isPopular) {
+                badgesHtml += '<span class="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full" style="background: color-mix(in srgb, ' + brandPrimary + ' 10%, white); color: var(--brand-primary-dark);">'
+                    + '<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>'
+                    + 'Populaire</span>';
+            }
+            if (formation.badges) {
+                formation.badges.forEach(function(b) {
+                    badgesHtml += '<span class="hidden lg:inline-flex items-center text-[11px] font-semibold text-gray-500 bg-gray-100 px-3 py-1 rounded-full">' + b + '</span>';
+                });
+            }
+            heroBadges.innerHTML = badgesHtml;
+        }
+
+        // Update hero title
+        var heroTitle = document.getElementById('hero-title');
+        if (heroTitle) {
+            heroTitle.textContent = getDisplayTitle(formation.fullTitle);
+        }
+
+        // Update hero audience
+        var heroAudience = document.getElementById('hero-audience');
+        if (heroAudience) {
+            heroAudience.textContent = formation.audience || '';
+        }
+
+        // Update hero info card — always show lowest price
+        var heroPrice = document.getElementById('hero-price');
+        if (heroPrice) {
+            var minFmt = null;
+            if (formation.formats) {
+                formation.formats.forEach(function(f) {
+                    if (f.price !== null && f.price !== undefined && (!minFmt || f.price < minFmt.price)) minFmt = f;
+                });
+            }
+            heroPrice.innerHTML = minFmt && minFmt.priceDisplay ? minFmt.priceDisplay + '\u00a0\u20AC' : 'Sur devis';
+        }
+        var heroDuration = document.getElementById('hero-duration');
+        if (heroDuration) {
+            var durText = '';
+            if (formation.formats) {
+                formation.formats.forEach(function(f, i) { durText += f.hours + 'h'; if (i < formation.formats.length - 1) durText += ' ou '; });
+            }
+            heroDuration.textContent = durText;
+        }
+        var heroModality = document.getElementById('hero-modality');
+        if (heroModality) {
+            heroModality.textContent = formation.modalities ? formation.modalities.mode : '';
+        }
+        var heroCert = document.getElementById('hero-cert');
+        if (heroCert) {
+            heroCert.textContent = formation.certificationNumber || '';
+        }
+        var heroModules = document.getElementById('hero-modules');
+        if (heroModules) {
+            heroModules.textContent = (formation.modules ? formation.modules.length : 0) + ' modules';
+        }
+
+        // Update format cards
+        updateFormatCards(formation);
+
+        // Update format badges
+        updateFormatBadges(formation);
+
+        // Update price display
+        updatePriceDisplay(formation, 0);
+
+        // Update modules
+        updateModules(formation);
+
+        // Update audience
+        var audienceText = document.getElementById('audience-text');
+        if (audienceText) {
+            audienceText.textContent = formation.audience || 'Informations \u00e0 venir.';
+        }
+
+        // Update prerequisites
+        updatePrerequisites(formation);
+
+        // Update evaluation tab
+        updateEvaluation(formation);
+
+        // Update modalites tab
+        updateModalites(formation);
+
+        // Reset tabs to modules
+        var firstTabBtn = document.querySelector('.tab-btn');
+        if (firstTabBtn) {
+            switchTab('modules', firstTabBtn);
+        }
+    }
+
+    /**
+     * Update the format selection cards
+     */
+    function updateFormatCards(formation) {
+        var container = document.getElementById('format-cards-container');
+        if (!container) return;
+
+        var formats = formation.formats;
+        if (!formats || formats.length === 0) {
+            container.innerHTML = '<p class="text-sm text-gray-500 col-span-2 text-center">Aucun format disponible pour le moment.</p>';
+            return;
+        }
+
+        container.className = 'flex flex-wrap justify-center gap-5 max-w-2xl mx-auto';
+
+        var html = '';
+        formats.forEach(function(format, i) {
+            var isActive = (i === 0);
+            var priceText = format.priceDisplay ? format.priceDisplay + '\u20AC' : 'Sur devis';
+            var hoursText = format.hours + 'h';
+            html += '<button class="format-card card-lift ' + (isActive ? 'active' : 'bg-white border-gray-200') + ' border-2 rounded-2xl px-8 py-5 text-center cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 flex-1 min-w-[140px] max-w-[200px]" style="' + (isActive ? 'background-color:color-mix(in srgb, ' + brandPrimary + ' 8%, white); border-color:' + brandPrimary + '; box-shadow: 0 0 0 2px color-mix(in srgb, ' + brandPrimary + ' 15%, transparent), 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);' : 'box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04);') + '" onclick="selectFormat(' + i + ')">';
+            html += '<div class="text-base font-semibold text-gray-900">' + hoursText + '</div>';
+            html += '<div class="text-2xl font-extrabold mt-1.5" style="color:var(--brand-primary)">' + priceText + '</div>';
+            html += '</button>';
+        });
+        container.innerHTML = html;
+    }
+
+    /**
+     * Update format badges
+     */
+    function updateFormatBadges(formation) {
+        var container = document.getElementById('format-badges-container');
+        if (!container) return;
+
+        var badges = formation.badges;
+        if (!badges || badges.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        var html = '';
+        badges.forEach(function(badge) {
+            if (!siteIsCertified && (badge === 'Certification' || badge === 'CPF')) return;
+            var icon = badgeIconMap[badge] || defaultBadgeIcon;
+            html += '<div class="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2.5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04);">';
+            html += icon;
+            html += '<span class="text-xs font-semibold text-gray-700">' + badge + '</span>';
+            html += '</div>';
+        });
+        container.innerHTML = html;
+    }
+
+    /**
+     * Update price display
+     */
+    function updatePriceDisplay(formation, formatIndex) {
+        var priceEl = document.getElementById('displayed-price');
+        if (!priceEl) return;
+
+        var formats = formation.formats;
+        if (formats && formats[formatIndex]) {
+            var format = formats[formatIndex];
+            if (format.priceDisplay && format.price !== null) {
+                priceEl.textContent = format.priceDisplay + '\u20AC';
+            } else {
+                priceEl.textContent = format.priceDisplay || 'Sur devis';
+            }
+        } else {
+            priceEl.textContent = 'Sur devis';
+        }
+    }
+
+    /**
+     * Update modules list
+     */
+    function updateModules(formation) {
+        var container = document.getElementById('modules-list');
+        if (!container) return;
+
+        var modules = formation.modules;
+        if (!modules || modules.length === 0) {
+            container.innerHTML = '<p class="text-sm text-gray-500 text-center py-8">Programme en cours de finalisation. Contactez-nous pour plus d\'informations.</p>';
+            return;
+        }
+
+        var html = '';
+        modules.forEach(function(mod) {
+            var colors = moduleColorMap[mod.color] || moduleColorMap['gray'];
+            html += '<div class="module-item flex gap-4 p-4 rounded-xl border-l-4 ' + colors.border + ' border border-transparent">';
+            html += '<div class="flex-shrink-0 w-10 h-10 rounded-full ' + colors.bg + ' flex items-center justify-center" style="box-shadow: 0 2px 8px ' + colors.shadow + ';">';
+            html += '<span class="text-white text-sm font-bold">' + mod.number + '</span>';
+            html += '</div>';
+            html += '<div class="flex-1">';
+            html += '<h4 class="text-base font-semibold text-gray-900 mb-1.5">' + mod.title + '</h4>';
+            html += '<p class="text-sm text-gray-600 ' + (mod.details && mod.details.length > 0 ? 'mb-2' : '') + ' leading-relaxed">';
+            html += '<span class="font-medium text-gray-700">Objectifs :</span> ' + mod.objectives;
+            html += '</p>';
+            if (mod.details && mod.details.length > 0) {
+                html += '<ul class="text-sm text-gray-500 space-y-1 ml-4 list-disc leading-relaxed">';
+                mod.details.forEach(function(detail) {
+                    html += '<li>' + detail + '</li>';
+                });
+                html += '</ul>';
+            }
+            html += '</div></div>';
+        });
+        container.innerHTML = html;
+    }
+
+    /**
+     * Update prerequisites list
+     */
+    function updatePrerequisites(formation) {
+        var container = document.getElementById('prerequisites-list');
+        if (!container) return;
+
+        var prereqs = formation.prerequisites;
+        if (!prereqs || prereqs.length === 0) {
+            container.innerHTML = '<p class="text-sm text-gray-500">Aucun pr\u00e9requis sp\u00e9cifique.</p>';
+            return;
+        }
+
+        var html = '';
+        prereqs.forEach(function(prereq) {
+            html += '<div class="flex items-center gap-2.5">';
+            html += checkIconSvg;
+            html += '<span class="text-sm text-gray-600 leading-relaxed">' + prereq + '</span>';
+            html += '</div>';
+        });
+        container.innerHTML = html;
+    }
+
+    /**
+     * Update evaluation tab content
+     */
+    function updateEvaluation(formation) {
+        var eval_ = formation.evaluation;
+
+        // Tracking list
+        var trackingList = document.getElementById('tracking-list');
+        if (trackingList) {
+            if (eval_.tracking && eval_.tracking.length > 0) {
+                var html = '';
+                eval_.tracking.forEach(function(item, idx) {
+                    html += '<div class="flex items-center gap-2.5">';
+                    if (idx > 0) {
+                        html += checkIconSvg;
+                    }
+                    html += '<span class="text-sm text-gray-600 leading-relaxed">' + item + '</span>';
+                    html += '</div>';
+                });
+                trackingList.innerHTML = html;
+            } else {
+                trackingList.innerHTML = '<p class="text-sm text-gray-500">Informations \u00e0 venir.</p>';
+            }
+        }
+
+        // Certification section (hide when site has no certification or note is empty)
+        var certSection = document.getElementById('certification-section');
+        var certNote = document.getElementById('certification-note');
+        if (certSection) {
+            if (siteIsCertified && eval_.certificationNote) {
+                certSection.style.display = '';
+                if (certNote) {
+                    certNote.querySelector('p').textContent = eval_.certificationNote;
+                }
+            } else {
+                certSection.style.display = 'none';
+            }
+        }
+
+        // Inscription note (formation-specific, below the generic text)
+        var inscNote = document.getElementById('inscription-note');
+        if (inscNote) {
+            if (siteIsCertified && eval_.inscriptionNote) {
+                inscNote.textContent = eval_.inscriptionNote;
+                inscNote.classList.remove('hidden');
+            } else {
+                inscNote.classList.add('hidden');
+            }
+        }
+    }
+
+    /**
+     * Update modalites tab content
+     */
+    function updateModalites(formation) {
+        var mod = formation.modalities;
+
+        // Organisation details
+        var orgMode = document.getElementById('org-mode');
+        var orgDuration = document.getElementById('org-duration');
+        var orgCert = document.getElementById('org-certification');
+        var orgNote = document.getElementById('org-note');
+
+        if (orgMode) orgMode.textContent = mod.mode || '';
+        if (orgDuration) orgDuration.textContent = mod.duration || '';
+        if (orgCert) orgCert.textContent = siteIsCertified ? (mod.certification || '') : 'Attestation de formation';
+        if (orgNote) orgNote.textContent = mod.note || '';
+
+        // Pedagogical means
+        var meansContainer = document.getElementById('pedagogical-means');
+        if (meansContainer) {
+            var means = mod.pedagogicalMeans;
+            if (means && means.length > 0) {
+                var html = '';
+                means.forEach(function(m) {
+                    var icon = meansIconMap[m.icon] || defaultMeansIcon;
+                    html += '<div class="bg-gray-50/80 rounded-2xl p-5 border border-gray-100">';
+                    html += '<div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background:color-mix(in srgb,var(--brand-primary) 15%,white); color:var(--brand-primary)">';
+                    html += icon;
+                    html += '</div>';
+                    html += '<div class="text-sm font-semibold text-gray-900 mb-1">' + m.title + '</div>';
+                    html += '<div class="text-xs text-gray-500 leading-relaxed">' + m.desc + '</div>';
+                    html += '</div>';
+                });
+                meansContainer.innerHTML = html;
+            } else {
+                meansContainer.innerHTML = '<p class="text-sm text-gray-500 col-span-2">Informations \u00e0 venir.</p>';
+            }
+        }
+    }
+
+    /**
+     * Select a format by index
+     */
+    function selectFormat(index) {
+        currentFormatIndex = index;
+        var formation = formationsData[currentParcoursIndex];
+
+        // Update format card active states
+        var cards = document.querySelectorAll('.format-card');
+        cards.forEach(function(c, i) {
+            if (i === index) {
+                c.classList.add('active');
+                c.classList.remove('bg-white');
+                c.style.backgroundColor = 'color-mix(in srgb, ' + brandPrimary + ' 8%, white)';
+                c.style.borderColor = brandPrimary;
+                c.style.boxShadow = '0 0 0 2px color-mix(in srgb, ' + brandPrimary + ' 15%, transparent), 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04)';
+            } else {
+                c.classList.remove('active');
+                c.style.backgroundColor = '';
+                c.classList.add('bg-white');
+                c.style.borderColor = '#E5E7EB';
+                c.style.boxShadow = '0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04)';
+            }
+        });
+
+        // Update displayed price
+        updatePriceDisplay(formation, index);
+
+        // Update hero card price — always show lowest price
+        var heroPrice = document.getElementById('hero-price');
+        if (heroPrice) {
+            var minFmt = null;
+            if (formation.formats) {
+                formation.formats.forEach(function(f) {
+                    if (f.price !== null && f.price !== undefined && (!minFmt || f.price < minFmt.price)) minFmt = f;
+                });
+            }
+            heroPrice.innerHTML = minFmt && minFmt.priceDisplay ? minFmt.priceDisplay + '\u00a0\u20AC' : 'Sur devis';
+        }
+
+        var orgDuration = document.getElementById('org-duration');
+        if (orgDuration && fmt) orgDuration.textContent = fmt.hours + ' heures';
+    }
+
+    /**
+     * Switch tab panels (pill style)
+     */
+    function switchTab(tabName, btnEl) {
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content').forEach(function(panel) {
+            panel.classList.remove('active');
+        });
+        // Deactivate all tab buttons
+        document.querySelectorAll('.tab-btn').forEach(function(btn) {
+            btn.classList.remove('active');
+            btn.style.color = '#6B7280';
+            btn.style.backgroundColor = 'transparent';
+            btn.style.boxShadow = 'none';
+            btn.style.fontWeight = '500';
+            btn.setAttribute('aria-selected', 'false');
+        });
+        // Show selected tab content
+        var panel = document.getElementById('tab-' + tabName);
+        if (panel) {
+            panel.classList.add('active');
+        }
+        // Activate selected tab button (pill style)
+        btnEl.classList.add('active');
+        btnEl.style.color = brandPrimary;
+        btnEl.style.backgroundColor = '#ffffff';
+        btnEl.style.boxShadow = '0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08)';
+        btnEl.style.fontWeight = '600';
+        btnEl.setAttribute('aria-selected', 'true');
+    }
+
+    /**
+     * Programme modal
+     */
+    var programmeUrl = '';
+
+    function openProgrammeModal() {
+        var formation = formationsData[currentParcoursIndex];
+        var format = formation.formats[currentFormatIndex];
+
+        // Fill modal info
+        var nameEl = document.getElementById('modal-formation-name');
+        var durationEl = document.getElementById('modal-formation-duration');
+        var certEl = document.getElementById('modal-formation-cert');
+        var priceEl = document.getElementById('modal-formation-price');
+
+        if (nameEl) nameEl.textContent = formation.fullTitle;
+        if (durationEl) durationEl.textContent = format ? format.hours + 'h' : '';
+        if (siteIsCertified && certEl) certEl.textContent = formation.certificationNumber || '';
+        if (priceEl) priceEl.textContent = format && format.priceDisplay ? format.priceDisplay + '\u20AC' : 'Sur devis';
+
+        // Show modal
+        var modal = document.getElementById('programme-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Trigger PDF download
+        if (programmeUrl) {
+            var link = document.createElement('a');
+            link.href = programmeUrl;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.click();
+        }
+    }
+
+    function closeProgrammeModal() {
+        var modal = document.getElementById('programme-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeProgrammeModal();
+            closeDownloadModal();
+        }
+    });
+
+    // Download modal
+    function openDownloadModal() {
+        var modal = document.getElementById('download-modal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeDownloadModal() {
+        var modal = document.getElementById('download-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function handleDownload(e) {
+        e.preventDefault();
+        closeDownloadModal();
+    }
+</script>
+</body>
+</html>

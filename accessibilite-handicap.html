@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibilité handicap — JMG CONSULTING (J.M.G.C)</title>
+<meta name="description" content="Accessibilité handicap.">
+<meta property="og:title" content="Accessibilité handicap — JMG CONSULTING (J.M.G.C)">
+<meta property="og:description" content="Accessibilité handicap.">
+<meta property="og:image" content="https://placehold.co/1200x630">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23EA580C'/><path d='M50 28L18 44l32 16 32-16L50 28z' fill='white' opacity='0.95'/><path d='M30 52v14c0 0 8 8 20 8s20-8 20-8V52L50 62 30 52z' fill='white' opacity='0.9'/><rect x='76' y='44' width='3' height='24' rx='1.5' fill='white' opacity='0.8'/><circle cx='77.5' cy='70' r='3' fill='white' opacity='0.8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+        },
+    },
+};
+</script>
+<style>
+:root {
+  --brand-primary: #EA580C;
+  --brand-primary-dark: #C2410C;
+  --brand-secondary: #2563EB;
+  --brand-secondary-dark: #1D4ED8;
+  --brand-accent: #059669;
+}
+
+/* === Fallbacks pour color-mix() (compat Safari < 16.2, Chrome < 111) === */
+/* Ces classes sont utilisées dans les templates pour éviter color-mix() inline */
+.brand-bg-soft { background: rgba(37,99,235,0.08); background: color-mix(in srgb, var(--brand-primary) 8%, white); }
+.brand-bg-soft-md { background: rgba(37,99,235,0.12); background: color-mix(in srgb, var(--brand-primary) 12%, white); }
+.brand-bg-soft-lg { background: rgba(37,99,235,0.15); background: color-mix(in srgb, var(--brand-primary) 15%, white); }
+.brand-secondary-bg-soft { background: rgba(34,197,94,0.08); background: color-mix(in srgb, var(--brand-secondary) 8%, white); }
+.brand-hero-gradient {
+  background: linear-gradient(to bottom right, rgba(37,99,235,0.08), white, rgba(34,197,94,0.08));
+  background: linear-gradient(to bottom right, color-mix(in srgb, var(--brand-primary) 8%, white), white, color-mix(in srgb, var(--brand-secondary) 8%, white));
+}
+.brand-ring { box-shadow: 0 0 0 2px rgba(37,99,235,0.15); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.brand-blur-decor-primary { background: rgba(37,99,235,0.15); background: color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.brand-blur-decor-secondary { background: rgba(34,197,94,0.15); background: color-mix(in srgb, var(--brand-secondary) 15%, transparent); }
+.brand-badge-bg { background: rgba(37,99,235,0.08); background: color-mix(in srgb, var(--brand-primary) 8%, white); color: var(--brand-primary-dark); }
+html { scroll-behavior: smooth; }
+* { font-family: 'Inter', system-ui, sans-serif; }
+
+/* Card shadow */
+.card-shadow { box-shadow: 0 2px 15px -3px rgba(0,0,0,0.07), 0 10px 20px -2px rgba(0,0,0,0.04); }
+.card-shadow-hover:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+
+/* Gradient text */
+.gradient-text { background: linear-gradient(135deg, #111827 0%, #4B5563 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* Button gradient using config colors */
+.btn-gradient { background: linear-gradient(135deg, #EA580C, #2563EB); position: relative; z-index: 1; overflow: hidden; }
+.btn-gradient:hover { transform: translateY(-1px); }
+.btn-gradient::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, #C2410C, #1D4ED8); opacity: 0; z-index: -1; transition: opacity 0.2s ease; }
+.btn-gradient:hover::before { opacity: 1; }
+
+/* Button spotlight cursor-follow effect */
+.btn-spotlight { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity 0.25s ease; background: radial-gradient(80px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(255,255,255,0.4) 0%, transparent 100%); }
+.btn-gradient:hover .btn-spotlight { opacity: 1; }
+
+/* Glowing CTA Effect */
+.glow-wrapper { --glow-start: 0; --glow-active: 0; --glow-border: 3px; position: relative; display: inline-block; padding: var(--glow-border); border-radius: 1rem; }
+.glow-wrapper .glow-border { position: absolute; inset: 0; border-radius: inherit; pointer-events: none; overflow: hidden; opacity: var(--glow-active); transition: opacity 0.3s ease; }
+.glow-wrapper .glow-border::after { content: ''; position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; transform: translate(-50%, -50%) rotate(calc(var(--glow-start) * 1deg)); background: conic-gradient(from 0deg, transparent 0deg, #EA580C 40deg, #06B6D4 80deg, #2563EB 120deg, #22C55E 160deg, transparent 200deg, transparent 360deg); }
+.glow-wrapper .glow-bg { position: absolute; inset: -6px; border-radius: inherit; pointer-events: none; overflow: hidden; filter: blur(12px); opacity: calc(var(--glow-active) * 0.5); transition: opacity 0.3s ease; }
+.glow-wrapper .glow-bg::after { content: ''; position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; transform: translate(-50%, -50%) rotate(calc(var(--glow-start) * 1deg)); background: conic-gradient(from 0deg, transparent 0deg, #EA580C 40deg, #06B6D4 80deg, #2563EB 120deg, #22C55E 160deg, transparent 200deg, transparent 360deg); }
+.glow-wrapper > a { position: relative; z-index: 2; display: block; }
+
+/* Hero Highlight Effect */
+.hero-highlight { position: relative; overflow: hidden; }
+.hero-dot-bg { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, rgb(212 212 212) 1px, transparent 1px); background-size: 16px 16px; opacity: 0.7; }
+.hero-dot-hover { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, var(--brand-primary) 1px, transparent 1px); background-size: 16px 16px; opacity: 0; transition: opacity 0.3s ease; -webkit-mask-image: radial-gradient(200px circle at 50% 50%, black 0%, transparent 100%); mask-image: radial-gradient(200px circle at 50% 50%, black 0%, transparent 100%); }
+.hero-highlight:hover .hero-dot-hover { opacity: 1; }
+
+@keyframes hero-text-enter { 0% { opacity: 0; transform: translateY(20px); } 60% { opacity: 1; transform: translateY(-5px); } 100% { opacity: 1; transform: translateY(0); } }
+.hero-text-animate { animation: hero-text-enter 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; opacity: 0; }
+
+@keyframes highlight-grow { 0% { background-size: 0% 100%; } 100% { background-size: 100% 100%; } }
+.text-highlight { background-repeat: no-repeat; background-position: left center; display: inline; padding-bottom: 4px; padding-left: 4px; padding-right: 4px; border-radius: 0.5rem; background-image: linear-gradient(to right, color-mix(in srgb, var(--brand-primary) 40%, white), color-mix(in srgb, var(--brand-secondary) 40%, white)); background-size: 0% 100%; animation: highlight-grow 2s linear 0.8s forwards; }
+
+/* Card lift */
+.card-lift { transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); }
+.card-lift:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12); }
+
+/* FAQ */
+.faq-item { transition: border-color 200ms ease; }
+.faq-item:hover { border-left: 3px solid var(--brand-primary); }
+.faq-item.faq-open { border-left: 3px solid var(--brand-primary); }
+.faq-answer-content { background: color-mix(in srgb, var(--brand-primary) 5%, white); }
+
+/* Tab system */
+.tab-btn { position: relative; border-radius: 0.5rem; transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease; }
+.tab-btn.active { color: var(--brand-primary); background-color: #ffffff; box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08); font-weight: 600; }
+.parcours-card.active { border-color: var(--brand-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent), 0 4px 20px -4px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.format-card.active { border-color: var(--brand-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand-primary) 15%, transparent), 0 4px 20px -4px color-mix(in srgb, var(--brand-primary) 15%, transparent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.module-item { transition: background-color 0.2s ease, transform 0.2s ease; }
+.module-item:hover { background-color: #F9FAFB; }
+.tab-scroll::-webkit-scrollbar { display: none; }
+.tab-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+.stat-divider { position: relative; }
+.stat-divider::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 60%; background: linear-gradient(180deg, transparent, #E5E7EB, transparent); }
+.stat-divider:last-child::after { display: none; }
+
+/* Button lift */
+.btn-lift { transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease; }
+.btn-lift:hover { transform: translateY(-1px); }
+
+/* Glow card spotlight effect */
+[data-glow] { --x: 0.5; --y: 0.5; --glow-hue: 220; --glow-opacity: 0; position: relative; overflow: hidden; }
+[data-glow]::before { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 0; opacity: var(--glow-opacity); transition: opacity 0.3s ease; background: radial-gradient(600px circle at calc(var(--x) * 100%) calc(var(--y) * 100%), hsla(var(--glow-hue), 70%, 60%, 0.15) 0%, transparent 70%); }
+[data-glow]:hover { --glow-opacity: 1; transform: scale(1.02) translateY(-4px); border-color: hsla(var(--glow-hue), 70%, 60%, 0.3); box-shadow: 0 8px 30px hsla(var(--glow-hue), 70%, 60%, 0.12); }
+[data-glow] > * { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { [data-glow]:hover { transform: none; } }
+</style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2.5" aria-label="JMG CONSULTING (J.M.G.C) - Accueil">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#EA580C"/><text x="16" y="22" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="white">JC</text></svg>
+            <span class="font-bold text-gray-900 text-base tracking-tight" style="letter-spacing: -0.02em;">JMG CONSULTING (J.M.G.C)</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+            
+            <a href="index.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Accueil</a>
+            <a href="formation.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Formation</a>
+            <a href="equipe.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Équipe</a>
+            <a href="faq.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >FAQ</a>
+            <a href="contact.html" class="px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50" >Contact</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" style="outline-offset: 2px;" aria-label="Menu" aria-expanded="false" onfocus="this.style.outlineColor='var(--brand-primary)'" onblur="this.style.outline=''">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+        <div class="px-4 py-3 space-y-1">
+            <a href="index.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Accueil</a>
+            <a href="formation.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Formation</a>
+            <a href="equipe.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Équipe</a>
+            <a href="faq.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >FAQ</a>
+            <a href="contact.html" class="block px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-50" >Contact</a>
+        </div>
+    </div>
+</header>
+    <main>
+<!-- HERO -->
+<section class="relative bg-gradient-to-br from-blue-50 via-white to-green-50 py-16 md:py-24 text-center overflow-hidden">
+    <div class="absolute top-10 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-10 w-64 h-64 bg-green-200/30 rounded-full blur-3xl"></div>
+    <div class="relative max-w-3xl mx-auto px-4">
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">Accessibilit&eacute; handicap</h1>
+        <p class="text-base text-gray-500">Version 20/05/2025</p>
+    </div>
+</section>
+
+<!-- CONTENT -->
+<section class="py-16 md:py-24 px-4">
+    <div class="max-w-3xl mx-auto space-y-8">
+
+        <!-- Accessibilité des locaux -->
+        <div class="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 p-8 md:p-10">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-4">Accessibilit&eacute; de nos locaux</h2>
+            <p class="text-base leading-relaxed text-gray-600 mb-4">Les lieux de formation d'JMG CONSULTING (J.M.G.C) sont accessibles &ndash; sauf exception &ndash; aux personnes &agrave; mobilit&eacute; r&eacute;duite.</p>
+            <p class="text-base leading-relaxed text-gray-600 mb-4">Nos locaux sont am&eacute;nag&eacute;s pour assurer un accueil physique adapt&eacute; aux personnes en situation de handicap. L'agencement des salles de formation et de l'espace d'accueil est pens&eacute; pour r&eacute;pondre aux diff&eacute;rentes difficult&eacute;s potentielles :</p>
+            <ul class="space-y-3 mb-4">
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Les espaces de circulation sont larges et d&eacute;gag&eacute;s.
+                </li>
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Les zones de travail et de d&eacute;tente ont &eacute;t&eacute; &eacute;tudi&eacute;es pour faciliter le d&eacute;placement des personnes &agrave; mobilit&eacute; r&eacute;duite.
+                </li>
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Des si&egrave;ges et divans de repos sont install&eacute;s &agrave; intervalles r&eacute;guliers.
+                </li>
+            </ul>
+            <p class="text-base leading-relaxed text-gray-600">Notre &eacute;quipe p&eacute;dagogique est form&eacute;e &agrave; l'accueil du public en situation de handicap, et reste attentive et disponible pour apporter une aide personnalis&eacute;e.</p>
+        </div>
+
+        <!-- Contact référent handicap -->
+        <div class="bg-gradient-to-br from-blue-50 to-green-50 border border-blue-100 rounded-2xl p-8 md:p-10">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 border-l-4 border-green-500 pl-4">R&eacute;f&eacute;rent handicap</h2>
+            <p class="text-base leading-relaxed text-gray-600 mb-6">Pour toute question, doute ou besoin d'adaptation sp&eacute;cifique, nous vous invitons &agrave; contacter notre r&eacute;f&eacute;rent handicap :</p>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <p class="text-lg font-bold text-gray-900 mb-3">Julien Gouffet &ndash; R&eacute;f&eacute;rent handicap</p>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-3 text-base text-gray-600">
+                        <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
+                        +33 7 78 91 36 75
+                    </div>
+                    <div class="flex items-center gap-3 text-base text-gray-600">
+                        <svg class="w-5 h-5 text-blue-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                        jmgconsulting83@gmail.com
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-gray-500 mt-4">Nous pr&eacute;parerons votre venue en amont et adapterons les modalit&eacute;s d'accueil &agrave; vos besoins.</p>
+        </div>
+
+        <!-- Accueil PSH -->
+        <div class="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 p-8 md:p-10">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 border-l-4 border-blue-600 pl-4">Accueil des personnes en situation de handicap</h2>
+            <p class="text-base leading-relaxed text-gray-600 mb-4">L'ensemble de notre &eacute;quipe est inform&eacute;e des proc&eacute;dures relatives &agrave; l'accueil des personnes en situation de handicap. Nous mettons en place :</p>
+            <ul class="space-y-3">
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Des techniques d'adaptation de la communication (verbale et non verbale)
+                </li>
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Une prise en charge personnalis&eacute;e, adapt&eacute;e &agrave; vos besoins sp&eacute;cifiques
+                </li>
+            </ul>
+        </div>
+
+        <!-- Adaptation des formations -->
+        <div class="bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 p-8 md:p-10">
+            <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 border-l-4 border-green-500 pl-4">Adaptation de nos formations</h2>
+            <p class="text-base leading-relaxed text-gray-600 mb-4">JMG CONSULTING (J.M.G.C) inscrit la prise en compte du handicap dans le c&oelig;ur de sa d&eacute;marche qualit&eacute; et de ses pratiques p&eacute;dagogiques (pr&eacute;sentiel &amp; e-learning).</p>
+            <p class="text-base leading-relaxed text-gray-600 mb-4">Nous nous engageons &agrave; :</p>
+            <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Adapter les modalit&eacute;s de formation aux situations rencontr&eacute;es
+                </li>
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Mettre &agrave; jour r&eacute;guli&egrave;rement les comp&eacute;tences de nos r&eacute;f&eacute;rents handicap
+                </li>
+                <li class="flex items-start gap-3 text-base text-gray-600">
+                    <span class="w-6 h-6 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3.5 h-3.5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                    </span>
+                    Cr&eacute;er un r&eacute;seau de partenaires facilitant l'acc&egrave;s &agrave; la formation pour tous
+                </li>
+            </ul>
+            <div class="bg-green-50 border border-green-100 rounded-xl p-5 text-center">
+                <p class="text-sm text-gray-600">Pour toute demande, n'h&eacute;sitez pas &agrave; nous &eacute;crire &agrave; <strong class="text-green-700">jmgconsulting83@gmail.com</strong></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+    </main>
+<footer class="bg-gray-50 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-16">
+        <div class="mb-10">
+            <a href="index.html" class="inline-flex items-center gap-2.5" aria-label="JMG CONSULTING (J.M.G.C) - Accueil">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#EA580C"/><text x="16" y="22" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="white">JC</text></svg>
+                <span class="font-bold text-gray-900 text-base tracking-tight" style="letter-spacing: -0.02em;">JMG CONSULTING (J.M.G.C)</span>
+            </a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-lg font-bold text-gray-900 mb-6">Informations l&eacute;gales</h3>
+                <div class="space-y-2 text-sm text-gray-600 leading-relaxed">
+                    <p><strong>JMG CONSULTING</strong></p>
+                    <p>Société par actions simplifiée</p>
+                    <p>Capital social : 1 000,00 EUR</p>
+                    <p class="mt-3">110 Avenue Sainte Marguerite 83610 Collobrières</p>
+                    <p>83610 Collobrieres</p>
+                    <p class="mt-3"><strong>Contact :</strong> jmgconsulting83@gmail.com</p>
+                    <p><strong>T&eacute;l&eacute;phone :</strong> +33 7 78 91 36 75</p>
+                    <p class="mt-3"><strong>SIRET :</strong> 93009419800015</p>
+                    <p><strong>D&eacute;claration d'activit&eacute; :</strong> NDA n&deg; 93830789783 aupr&egrave;s du Préfet de la région Provence-Alpes-Cote d'Azur.</p>
+                    <p class="text-xs text-gray-400 mt-1">Cet enregistrement ne vaut pas agr&eacute;ment de l'&Eacute;tat.</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center justify-center text-center">
+                <img src="Images Site/Qualiopi_actions-de-formation.png" alt="Certification Qualiopi — La certification qualité a été délivrée au titre de la catégorie d'action suivante : Actions de formation." class="max-w-[220px] w-full mb-4">
+                <p class="text-sm text-gray-600 max-w-xs">La certification qualité a été délivrée au titre de la catégorie d'action suivante : Actions de formation.</p>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="mentions-legales.html" class="hover:text-gray-700 transition-colors duration-200">Mentions l&eacute;gales et CGU/CGV</a><span class="text-gray-300">&bull;</span>
+                <a href="reglement-interieur.html" class="hover:text-gray-700 transition-colors duration-200">R&egrave;glement int&eacute;rieur</a><span class="text-gray-300">&bull;</span>
+                <a href="livret-accueil.html" class="hover:text-gray-700 transition-colors duration-200">Livret d'accueil et modalit&eacute;s diverses</a><span class="text-gray-300">&bull;</span>
+                <a href="accessibilite-handicap.html" class="hover:text-gray-700 transition-colors duration-200">Accessibilit&eacute; handicap</a>
+            </div>
+            <p>&copy; 2026 JMG CONSULTING (J.M.G.C) - Tous droits r&eacute;serv&eacute;s &mdash; Site cr&eacute;&eacute; par <a href="https://isao.fr" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-700 transition-colors duration-200 font-medium">ISAO</a></p>
+        </div>
+    </div>
+    <div class="h-1 w-full" style="background: linear-gradient(90deg, #F97316, #EA580C, #EAB308, #22C55E, #3B82F6, #F97316);"></div>
+</footer>
+<!-- Mobile menu toggle -->
+<script>
+(function() {
+    var menuBtn = document.getElementById('mobile-menu-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+            var isOpen = !mobileMenu.classList.contains('hidden');
+            mobileMenu.classList.toggle('hidden');
+            menuBtn.setAttribute('aria-expanded', !isOpen);
+        });
+    }
+})();
+</script>
+
+<!-- Button spotlight cursor-follow effect -->
+<script>
+(function() {
+    document.querySelectorAll('.btn-gradient').forEach(function(btn) {
+        var spot = document.createElement('span');
+        spot.className = 'btn-spotlight';
+        spot.setAttribute('aria-hidden', 'true');
+        btn.appendChild(spot);
+        btn.addEventListener('pointermove', function(e) {
+            var rect = btn.getBoundingClientRect();
+            spot.style.setProperty('--spot-x', (e.clientX - rect.left) + 'px');
+            spot.style.setProperty('--spot-y', (e.clientY - rect.top) + 'px');
+        });
+    });
+})();
+</script>
+
+<!-- Card glow spotlight effect -->
+<script>
+(function() {
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  var HUE_MAP = {
+    green:142, emerald:160, teal:174, cyan:188, blue:217,
+    indigo:239, violet:263, purple:271, orange:25, amber:38,
+    yellow:48, red:0, rose:350, pink:330, sky:199, lime:84
+  };
+  // Derive brand hue from --brand-primary
+  var brandHue = 217;
+  var bp = getComputedStyle(document.documentElement).getPropertyValue('--brand-primary').trim();
+  if (bp && bp.charAt(0) === '#') {
+    var hex = bp.replace('#', '');
+    if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    var r = parseInt(hex.substring(0,2),16)/255;
+    var g = parseInt(hex.substring(2,4),16)/255;
+    var b = parseInt(hex.substring(4,6),16)/255;
+    var mx = Math.max(r,g,b), mn = Math.min(r,g,b), h = 0;
+    if (mx !== mn) {
+      var d = mx - mn;
+      if (mx === r) h = ((g-b)/d + (g<b?6:0)) * 60;
+      else if (mx === g) h = ((b-r)/d + 2) * 60;
+      else h = ((r-g)/d + 4) * 60;
+    }
+    brandHue = Math.round(h);
+  }
+  // Set --glow-hue on each card from data-glow-color or brand fallback
+  document.querySelectorAll('[data-glow]').forEach(function(c) {
+    var color = c.getAttribute('data-glow-color');
+    c.style.setProperty('--glow-hue', color ? (HUE_MAP[color] || brandHue) : brandHue);
+  });
+  // Global pointermove tracking
+  document.addEventListener('pointermove', function(e) {
+    var cards = document.querySelectorAll('[data-glow]');
+    for (var i = 0; i < cards.length; i++) {
+      var rect = cards[i].getBoundingClientRect();
+      cards[i].style.setProperty('--x', ((e.clientX - rect.left) / rect.width).toFixed(3));
+      cards[i].style.setProperty('--y', ((e.clientY - rect.top) / rect.height).toFixed(3));
+    }
+  }, { passive: true });
+})();
+</script>
+
+
+</body>
+</html>

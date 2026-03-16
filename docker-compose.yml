@@ -1,0 +1,13 @@
+services:
+  jmg-consulting:
+    build: .
+    container_name: jmg-consulting
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external: true
