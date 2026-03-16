@@ -29,21 +29,21 @@ echo "🖥️  Déploiement sur le VPS..."
 ssh $VPS << DEPLOY
 set -e
 if [ ! -d "$VPS_DIR" ]; then
-    git clone $REPO_URL $VPS_DIR
+    sudo git clone $REPO_URL $VPS_DIR
     cd $VPS_DIR
 else
     cd $VPS_DIR
-    git fetch origin
-    git reset --hard origin/main
+    sudo git fetch origin
+    sudo git reset --hard origin/main
 fi
-docker network ls | grep -q app-network || docker network create app-network
-docker compose up -d --build --force-recreate
+sudo docker network ls | grep -q app-network || sudo docker network create app-network
+cd $VPS_DIR && sudo docker compose up -d --build --force-recreate
 sleep 3
-if docker ps | grep -q "$APP_NAME"; then
+if sudo docker ps | grep -q "$APP_NAME"; then
     echo "✅ Container $APP_NAME tourne"
 else
     echo "❌ Container $APP_NAME ne tourne pas !"
-    docker logs $APP_NAME --tail 20
+    sudo docker logs $APP_NAME --tail 20
     exit 1
 fi
 DEPLOY
